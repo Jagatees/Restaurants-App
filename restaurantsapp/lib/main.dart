@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:restaurantsapp/payment_service.dart';
 
 import 'feedback_form.dart';
 import 'profile.dart';
 import 'payment.dart';
+import 'existing_cards.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -44,19 +46,22 @@ class MyApp extends StatelessWidget {
 }
 
 
-
-
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
   final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  void initState() { // start striper system
+    // TODO: implement initState
+    super.initState();
+    StripeService.init();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,6 +114,31 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
+            FlatButton (
+              color: Colors.blue,
+              textColor: Colors.white,
+              disabledColor: Colors.grey,
+              disabledTextColor: Colors.black,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
+              onPressed : () async {
+
+                var response = await StripeService.payWithNewCard('15000', 'USD');
+
+
+                print("*" + response.message);
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Payments()),
+                );
+              },
+              child: Text(
+                "Payment Page",
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+
             FlatButton(
               color: Colors.blue,
               textColor: Colors.white,
@@ -119,35 +149,14 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Payment()),
+                  MaterialPageRoute(builder: (context) => ExistingCardsPage()),
                 );
               },
               child: Text(
-                "Payment Page",
+                "Existing Page",
                 style: TextStyle(fontSize: 20.0),
               ),
             ),
-
-
-
-            FlatButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              disabledColor: Colors.grey,
-              disabledTextColor: Colors.black,
-              padding: EdgeInsets.all(8.0),
-              splashColor: Colors.blueAccent,
-              onPressed: () {
-                _onPressed();
-              },
-              child: Text(
-                "Save to Firestore",
-                style: TextStyle(fontSize: 20.0),
-              ),
-            ),
-
-
-
           ],
         ),
       ),
