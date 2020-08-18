@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+ import 'firebase_database.dart';
 import 'main.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -7,7 +8,7 @@ class FeedBackForm extends StatelessWidget {
 
   double score = 3;
   TextEditingController feedbackInput = new TextEditingController();
-
+  Database database = new Database();
 
 
   @override
@@ -74,11 +75,14 @@ class FeedBackForm extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               splashColor: Colors.blueAccent,
               onPressed: () {
+
+
                   print("Feedback : " + feedbackInput.text.toString() + " Rating : " + score.toString());
                   if(feedbackInput.text.isEmpty){
                     print('feedback is emepty');
                   }else{
                     print('feedback is not emepty');
+                    database.sendFeedbackToDatabase('feedback', score, feedbackInput.text.toString());
                     showAlertDialog(context);
                   }
               },

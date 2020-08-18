@@ -6,6 +6,10 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:stripe_payment/stripe_payment.dart';
 
+import 'firebase_database.dart';
+
+Database database = new Database();
+
 class StripeTransactionResponse{
   String message;
   bool success;
@@ -134,6 +138,7 @@ class StripeService{
           body: body,
           headers: StripeService.headers
       );
+      database.sendPaymentRecordToDatabase(jsonDecode(response.body)) ;
       return jsonDecode(response.body);
     } catch (err) {
       print('err charging user: ${err.toString()}');

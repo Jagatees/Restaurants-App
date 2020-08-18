@@ -5,25 +5,9 @@ import 'feedback_form.dart';
 import 'profile.dart';
 import 'payment.dart';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-final firestoreInstance = Firestore.instance;
 
 
-void _onPressed() {
-  firestoreInstance.collection("users").add(
-      {
-        "name" : "john",
-        "age" : 50,
-        "email" : "example@example.com",
-        "address" : {
-          "street" : "street 24",
-          "city" : "new york"
-        }
-      }).then((value){
-    print(value.documentID);
-  });
-}
+
 
 void main() {
   runApp(MyApp());
