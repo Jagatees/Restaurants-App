@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'existing_cards.dart';
 import 'new_card.dart';
 
+// https://dashboard.stripe.com/test/dashboard -> to see money and transtions
+
 // This is the Payment Page to Chose other options
 class PaymentPage extends StatelessWidget {
   @override
