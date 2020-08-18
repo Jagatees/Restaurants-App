@@ -9,7 +9,7 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile Form'),
+        title: Text('Profile Page'),
       ),
       body: Center(
         child: Column(

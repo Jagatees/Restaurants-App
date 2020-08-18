@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               child: Text(
-                "Profile Form",
+                "Profile Page",
                 style: TextStyle(fontSize: 20.0),
               ),
             ),
