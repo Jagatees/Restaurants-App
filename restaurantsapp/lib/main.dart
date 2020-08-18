@@ -2,6 +2,27 @@ import 'package:flutter/material.dart';
 
 import 'feedback_form.dart';
 import 'profile.dart';
+import 'payment.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+final firestoreInstance = Firestore.instance;
+
+
+void _onPressed() {
+  firestoreInstance.collection("users").add(
+      {
+        "name" : "john",
+        "age" : 50,
+        "email" : "example@example.com",
+        "address" : {
+          "street" : "street 24",
+          "city" : "new york"
+        }
+      }).then((value){
+    print(value.documentID);
+  });
+}
 
 void main() {
   runApp(MyApp());
@@ -22,6 +43,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -31,19 +55,17 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-
         title: Text(widget.title),
       ),
       body: Center(
-
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
@@ -86,6 +108,45 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontSize: 20.0),
               ),
             ),
+
+            FlatButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              disabledColor: Colors.grey,
+              disabledTextColor: Colors.black,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Payment()),
+                );
+              },
+              child: Text(
+                "Payment Page",
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+
+
+
+            FlatButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              disabledColor: Colors.grey,
+              disabledTextColor: Colors.black,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
+              onPressed: () {
+                _onPressed();
+              },
+              child: Text(
+                "Save to Firestore",
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+
+
 
           ],
         ),
