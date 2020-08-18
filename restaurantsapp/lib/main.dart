@@ -4,7 +4,6 @@ import 'package:restaurantsapp/payment_service.dart';
 import 'feedback_form.dart';
 import 'profile.dart';
 import 'payment.dart';
-import 'existing_cards.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -122,15 +121,9 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.all(8.0),
               splashColor: Colors.blueAccent,
               onPressed : () async {
-
-                var response = await StripeService.payWithNewCard('15000', 'USD');
-
-
-                print("*" + response.message);
-
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Payments()),
+                  MaterialPageRoute(builder: (context) => PaymentPage()),
                 );
               },
               child: Text(
@@ -139,24 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            FlatButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              disabledColor: Colors.grey,
-              disabledTextColor: Colors.black,
-              padding: EdgeInsets.all(8.0),
-              splashColor: Colors.blueAccent,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ExistingCardsPage()),
-                );
-              },
-              child: Text(
-                "Existing Page",
-                style: TextStyle(fontSize: 20.0),
-              ),
-            ),
+
           ],
         ),
       ),

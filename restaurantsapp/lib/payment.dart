@@ -1,26 +1,21 @@
 import 'package:flutter/material.dart';
+import 'existing_cards.dart';
+import 'new_card.dart';
 
-
-class Payments extends StatefulWidget {
-  @override
-  _PaymentsPageState createState() =>  _PaymentsPageState();
-}
-
-class  _PaymentsPageState extends State<Payments> {
-
+// This is the Payment Page to Chose other options
+class PaymentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
-        appBar: AppBar(
-          title:  Text('Choose Existing card'),
-        ),
-        body: Container(
-          padding: EdgeInsets.all(20),
-          child:  Text(
-            'asd'
-          ),
-        ),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+      ),
+      initialRoute: '/home',
+      routes: {
+        '/home': (context) => NewCard(),
+        '/existing-cards': (context) => ExistingCardsPage()
+      },
     );
   }
 }
