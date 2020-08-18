@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'feedback_form.dart';
+import 'profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -66,7 +67,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Feedback Form",
                 style: TextStyle(fontSize: 20.0),
               ),
-            )
+            ),
+            FlatButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              disabledColor: Colors.grey,
+              disabledTextColor: Colors.black,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profile()),
+                );
+              },
+              child: Text(
+                "Profile Form",
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
 
           ],
         ),
