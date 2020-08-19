@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurantsapp/delivery.dart';
 import 'package:restaurantsapp/payment_service.dart';
 
 import 'feedback_form.dart';
@@ -112,6 +113,26 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text(
                 "Payment Page",
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+
+
+            FlatButton (
+              color: Colors.blue,
+              textColor: Colors.white,
+              disabledColor: Colors.grey,
+              disabledTextColor: Colors.black,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
+              onPressed : () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Delivery()),
+                );
+              },
+              child: Text(
+                "Food Delivery Page",
                 style: TextStyle(fontSize: 20.0),
               ),
             ),
