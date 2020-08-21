@@ -6,7 +6,10 @@ import 'package:stripe_payment/stripe_payment.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 
 class ExistingCardsPage extends StatefulWidget {
-  ExistingCardsPage({Key key}) : super(key: key);
+  //ExistingCardsPage({Key key}) : super(key: key);
+
+  final String CHECKOUTTOTAL;
+  const ExistingCardsPage(this.CHECKOUTTOTAL);
 
   @override
   ExistingCardsPageState createState() => ExistingCardsPageState();
@@ -40,7 +43,7 @@ class ExistingCardsPageState extends State<ExistingCardsPage> {
       expYear: int.parse(expiryArr[1]),
     );
     var response = await StripeService.payViaExistingCard(
-        amount: '2500',
+        amount: widget.CHECKOUTTOTAL,
         currency: 'USD',
         card: stripeCard
     );

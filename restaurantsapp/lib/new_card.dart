@@ -3,8 +3,13 @@ import 'payment_service.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:restaurantsapp/payment_service.dart';
 
+
+
 class NewCard extends StatefulWidget {
-  NewCard({Key key}) : super(key: key);
+  //NewCard({Key key}) : super(key: key);
+
+  final String CHECKOUTTOTAL;
+  const NewCard(this.CHECKOUTTOTAL);
 
   @override
   NewCardPageState createState() => NewCardPageState();
@@ -30,7 +35,7 @@ class NewCardPageState extends State<NewCard> {
     );
     await dialog.show();
     var response = await StripeService.payWithNewCard(
-        amount: '15000',
+        amount: widget.CHECKOUTTOTAL,
         currency: 'USD'
     );
     await dialog.hide();

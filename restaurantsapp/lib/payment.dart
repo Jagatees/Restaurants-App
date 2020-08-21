@@ -15,8 +15,8 @@ class PaymentPage extends StatelessWidget {
       ),
       initialRoute: '/home',
       routes: {
-        '/home': (context) => NewCard(),
-        '/existing-cards': (context) => ExistingCardsPage()
+        '/home': (context) => NewCard('15000'),
+        '/existing-cards': (context) => ExistingCardsPage('20000')
       },
     );
   }

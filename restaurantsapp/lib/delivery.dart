@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
+import 'payment.dart';
+
 
 List<String> _locations = ['Cash', 'Card'];
-String _selectedEventStatus;
+String _selectedPaymentMethod = _locations[0];
 
 
 class Delivery extends StatefulWidget {
@@ -12,7 +14,6 @@ class Delivery extends StatefulWidget {
 
 
 class _Delivery extends State<Delivery> {
-  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,10 +55,10 @@ class _Delivery extends State<Delivery> {
 
             DropdownButton(
               hint: Text('Please choose a Event Status'), // Not necessary for Option 1
-              value: _selectedEventStatus,
+              value: _selectedPaymentMethod,
               onChanged: (newValue) {
                 setState(() {
-                  _selectedEventStatus = newValue;
+                  _selectedPaymentMethod = newValue;
                 });
               },
               items: _locations.map((location) {
@@ -66,6 +67,37 @@ class _Delivery extends State<Delivery> {
                   value: location,
                 );
               }).toList(),
+            ),
+
+            FlatButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              disabledColor: Colors.grey,
+              disabledTextColor: Colors.black,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
+              onPressed: () {
+
+                if(_selectedPaymentMethod == 'Cash')
+                {
+                  // go to the page to show the
+
+
+                }
+                else if (_selectedPaymentMethod == 'Card')
+                {
+                  // Go to the Card Page to Pay
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PaymentPage()),
+                  );
+                }
+
+              },
+              child: Text(
+                "Check Out Page",
+                style: TextStyle(fontSize: 20.0),
+              ),
             ),
 
           ],
