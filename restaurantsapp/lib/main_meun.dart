@@ -4,6 +4,7 @@ import 'profile.dart';
 import 'feedback_form.dart';
 import 'delivery.dart';
 import 'payment.dart';
+import 'user_info.dart';
 
 
 class MainMeun extends StatefulWidget {
@@ -30,14 +31,14 @@ class _MainMeunState extends State<MainMeun> {
               ),
             ),
             new ListTile(
-              title: new Text('About Page'),
+              title: new Text('Profile Info'),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Profile()),
+                  MaterialPageRoute(builder: (context) => UserInfo()),
                 );
-              } ,
+              },
             ),
 
             new Divider(
@@ -46,7 +47,7 @@ class _MainMeunState extends State<MainMeun> {
             ),
 
             new ListTile(
-              title: new Text('About Page'),
+              title: new Text('Shop Info'),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.push(
@@ -55,6 +56,34 @@ class _MainMeunState extends State<MainMeun> {
                 );
               } ,
             ),
+
+            new ListTile(
+              title: new Text(
+                  'Feedback Info'
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FeedBackForm()),
+                );
+              } ,
+            ),
+
+
+            new ListTile(
+              title: new Text(
+                  'Meun'
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profile()),
+                );
+              } ,
+            ),
+
 
 
           ],

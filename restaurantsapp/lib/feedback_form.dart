@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
- import 'firebase_database.dart';
-import 'main.dart';
+import 'firebase_database.dart';
+import 'main_meun.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class FeedBackForm extends StatelessWidget {
@@ -75,8 +75,6 @@ class FeedBackForm extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               splashColor: Colors.blueAccent,
               onPressed: () {
-
-
                   print("Feedback : " + feedbackInput.text.toString() + " Rating : " + score.toString());
                   if(feedbackInput.text.isEmpty){
                     print('feedback is emepty');
@@ -105,9 +103,10 @@ showAlertDialog(BuildContext context) {
   Widget okButton = FlatButton(
     child: Text("Close"),
     onPressed: () {
+      Navigator.of(context).pop();
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MyApp()),
+        MaterialPageRoute(builder: (context) => MainMeun()),
       );
     },
   );
