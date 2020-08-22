@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:restaurantsapp/check_out.dart';
 
 import 'profile.dart';
 import 'feedback_form.dart';
-import 'delivery.dart';
-import 'payment.dart';
 import 'user_info.dart';
 
 
@@ -71,15 +70,16 @@ class _MainMeunState extends State<MainMeun> {
             ),
 
 
+
             new ListTile(
               title: new Text(
-                  'Meun'
+                  'Credit Cards'
               ),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Profile()),
+                  MaterialPageRoute(builder: (context) => CheckOut()),
                 );
               } ,
             ),

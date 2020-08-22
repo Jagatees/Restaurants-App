@@ -17,4 +17,5 @@ class Database{
     firestoreInstance.collection('transtions').add(x);
   }
 
+
 }

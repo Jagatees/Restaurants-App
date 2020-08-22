@@ -1,14 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'main_meun.dart';
 
-class SignIn extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _SignInPageState createState() => new _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignIn> {
+class _SignUpPageState extends State<SignUpPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _email, _password;
@@ -22,6 +21,7 @@ class _SignInPageState extends State<SignIn> {
           child: Column(
             children: <Widget>[
               TextFormField(
+                // ignore: missing_return
                 validator: (input) {
                   if(input.isEmpty){
                     return 'Provide an email';
@@ -33,6 +33,7 @@ class _SignInPageState extends State<SignIn> {
                 onSaved: (input) => _email = input,
               ),
               TextFormField(
+                // ignore: missing_return
                 validator: (input) {
                   if(input.length < 6){
                     return 'Longer password please';
@@ -45,8 +46,8 @@ class _SignInPageState extends State<SignIn> {
                 obscureText: true,
               ),
               RaisedButton(
-                onPressed: signIn,
-                child: Text('Sign in'),
+                onPressed: signUp,
+                child: Text('Sign up'),
               ),
             ],
           )
@@ -54,12 +55,12 @@ class _SignInPageState extends State<SignIn> {
     );
   }
 
-  void signIn() async {
+  void signUp() async {
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
       try{
-        AuthResult user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MainMeun()));
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainMeun()));
       }catch(e){
         print(e.message);
       }
