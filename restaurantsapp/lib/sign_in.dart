@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:restaurantsapp/sign_up.dart';
 
 import 'main_meun.dart';
 
@@ -48,6 +49,22 @@ class _SignInPageState extends State<SignIn> {
                 onPressed: signIn,
                 child: Text('Sign in'),
               ),
+
+
+               Padding(
+                 padding: const EdgeInsets.fromLTRB(120.0, 0 ,0 , 0),
+                 child: ListTile(
+                  title: new Text('Make a Account?'),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpPage()),
+                    );
+                  } ,
+              ),
+               ),
+
             ],
           )
       ),

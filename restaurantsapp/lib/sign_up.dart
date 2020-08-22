@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:restaurantsapp/sign_in.dart';
 import 'main_meun.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -48,6 +49,20 @@ class _SignUpPageState extends State<SignUpPage> {
               RaisedButton(
                 onPressed: signUp,
                 child: Text('Sign up'),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.fromLTRB(120.0, 0 ,0 , 0),
+                child: ListTile(
+                  title: new Text('Already Have a Account?'),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignIn()),
+                    );
+                  } ,
+                ),
               ),
             ],
           )
