@@ -33,5 +33,14 @@ class Database{
     reference.setData(yourData);
   }
 
+  void updateUserInfo_withUID(String collection, String documents, String name, String role){
+   Firestore.instance.collection('user').document(documents.toString()).updateData(
+       {
+         "name" : name,
+         "role" : role,
+       }
+   );
+  }
+
 
 }

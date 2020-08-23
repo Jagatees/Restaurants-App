@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'firebase_database.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
+
 class UserInfo extends StatefulWidget {
   @override
   _UserInfoState createState() => _UserInfoState();
@@ -41,25 +43,18 @@ class _UserInfoState extends State<UserInfo> {
               decoration: const InputDecoration(
                 icon: const Icon(Icons.person),
                 hintText: 'Enter your first and last name',
-                labelText: 'Name',
+                labelText: 'Role',
               ),
             ),
 
-          Future<void> update(Map data) async {
-          final user = await FirebaseAuth.instance.currentUser();
-          return Firestore.instance.collection('Users').document(user.uid).updateData(data);
-          }
-
-
-
             new RaisedButton(
               child: const Text('Update Information'),
-              onPressed: () {
-                //database.SendDateUpdate(etRole.text.toString(), etUsername.text, etRole.text);
+              onPressed:  () async {
+                final FirebaseUser user = await FirebaseAuth.instance.currentUser();
+                final String uid = user.uid.toString();
+                database.updateUserInfo_withUID('user', uid.toString(), '123', 'asd');
               },
             ),
-
-
 
           ],
           );
