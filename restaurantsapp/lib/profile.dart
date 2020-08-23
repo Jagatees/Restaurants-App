@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 
@@ -12,7 +13,7 @@ class Profile extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: <Widget> [
             CircleAvatar(
               radius: 50.0,
               backgroundImage: AssetImage('images/unnamed.jpg'),
@@ -77,9 +78,6 @@ class Profile extends StatelessWidget {
                 ),
               ),
             ),
-
-
-
           ],
         ),
       ),

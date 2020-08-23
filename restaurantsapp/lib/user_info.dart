@@ -1,29 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'firebase_database.dart';
 
 class UserInfo extends StatefulWidget {
   @override
   _UserInfoState createState() => _UserInfoState();
 }
 
-String userInfo_Name = 'User_1234';
-String userInfo_Role = 'Customer';
-String userInfo_Address = 'Jurong East';
-
 class _UserInfoState extends State<UserInfo> {
+  TextEditingController etUsername = new TextEditingController();
+  TextEditingController etRole = new TextEditingController();
+  Database database = new Database();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('User Info Page'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
 
-            new TextFormField(
-              initialValue: userInfo_Name,
+      body : StreamBuilder(
+        stream: Firestore.instance.collection('user').snapshots(),
+        // ignore: missing_return
+        builder: (context, snapshot){
+          if(!snapshot.hasData) return Text('No Information Found');
+          return Column (children: <Widget>[
+             TextFormField(
+               controller: TextEditingController(text: etUsername.text = snapshot.data.documents[0]['name']),
               decoration: const InputDecoration(
                 icon: const Icon(Icons.person),
                 hintText: 'Enter your first and last name',
@@ -31,37 +36,34 @@ class _UserInfoState extends State<UserInfo> {
               ),
             ),
 
-
-            new TextFormField(
-              initialValue: userInfo_Role,
+            TextFormField(
+              controller: TextEditingController(text: etRole.text = snapshot.data.documents[0]['role']),
               decoration: const InputDecoration(
-                icon: const Icon(Icons.feedback),
+                icon: const Icon(Icons.person),
                 hintText: 'Enter your first and last name',
-                labelText: 'Role',
+                labelText: 'Name',
               ),
             ),
 
-            new TextFormField(
-              initialValue: userInfo_Address,
-              decoration: const InputDecoration(
-                icon: const Icon(Icons.home),
-                hintText: 'Enter your first and last name',
-                labelText: 'Address',
-              ),
-            ),
+          Future<void> update(Map data) async {
+          final user = await FirebaseAuth.instance.currentUser();
+          return Firestore.instance.collection('Users').document(user.uid).updateData(data);
+          }
 
 
 
             new RaisedButton(
               child: const Text('Update Information'),
               onPressed: () {
-
-
+                //database.SendDateUpdate(etRole.text.toString(), etUsername.text, etRole.text);
               },
             ),
 
+
+
           ],
-        ),
+          );
+        },
       ),
     );
   }

@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurantsapp/sign_in.dart';
 import 'main_meun.dart';
+
+Database database = new Database();
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -75,10 +78,16 @@ class _SignUpPageState extends State<SignUpPage> {
       _formKey.currentState.save();
       try{
         await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
+        final FirebaseUser user = await FirebaseAuth.instance.currentUser();
+        final String uid = user.uid.toString();
+        database.sendUserInfo_withUID(uid, 'jagatees', 'customer');
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainMeun()));
       }catch(e){
         print(e.message);
       }
     }
   }
+
+
+
 }
