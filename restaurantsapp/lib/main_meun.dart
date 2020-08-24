@@ -18,7 +18,6 @@ class _MainMeunState extends State<MainMeun> {
       appBar: AppBar(
         title: Text('Main Meun'),
       ),
-
       drawer: new Drawer(
         child: ListView(
           children: <Widget>[
@@ -26,7 +25,7 @@ class _MainMeunState extends State<MainMeun> {
                 accountName: new Text('Sam'),
                 accountEmail: new Text('jagateesvaran'),
               currentAccountPicture: new CircleAvatar(
-                backgroundImage: new AssetImage('images/unnamed.jpg'),
+                backgroundImage: new AssetImage('assets/images/profile_picture.jpg'),
               ),
             ),
             new ListTile(
