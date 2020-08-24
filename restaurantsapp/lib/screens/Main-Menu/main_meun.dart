@@ -35,11 +35,7 @@ class _MainMeunState extends State<MainMenu> {
           stream: _menuBloc.postListStream,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return ListView.builder(
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Text(snapshot.data[index].toString());
-                  });
+              return GridView.count(crossAxisCount: 2, children: List.generate(snapshot.data.length, (index) => Text(snapshot.data[index].toString())));
             } else {
               return CircularProgressIndicator();
             }
