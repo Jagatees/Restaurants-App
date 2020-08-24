@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurantsapp/screens/Main-Menu/main_meun.dart';
 import 'package:restaurantsapp/sign_in.dart';
 
 
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      routes: <String, WidgetBuilder>{
+        '/Main-Menu': (BuildContext context) => MainMenu()
+      },
       home: SignIn(),
     );
   }

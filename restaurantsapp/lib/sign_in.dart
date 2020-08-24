@@ -90,7 +90,7 @@ class _SignInPageState extends State<SignIn> {
       _formKey.currentState.save();
       try{
         AuthResult user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MainMenu()));
+        Navigator.pushNamed(context, "/Main-Menu");
       }catch(e){
         print(e.message);
       }
