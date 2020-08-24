@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurantsapp/sign_up.dart';
 
-import 'main_meun.dart';
+import 'screens/Main-Menu/main_meun.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -90,7 +90,7 @@ class _SignInPageState extends State<SignIn> {
       _formKey.currentState.save();
       try{
         AuthResult user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MainMeun()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MainMenu()));
       }catch(e){
         print(e.message);
       }
