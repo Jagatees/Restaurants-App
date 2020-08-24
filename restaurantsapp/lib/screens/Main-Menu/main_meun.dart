@@ -13,7 +13,19 @@ class _MainMeunState extends State<MainMenu> {
       appBar: AppBar(
         title: Text('Main Menu'),
       ),
-      drawer: CustomDrawer() 
+      drawer: CustomDrawer(),
+      body: Container(
+          child: Center(
+        child: StreamBuilder(
+          builder: (context, snapshot) {
+            if(snapshot.hasData){
+              
+            }else{
+              return CircularProgressIndicator();
+            }
+          },
+        ),
+      )),
     );
   }
 }
