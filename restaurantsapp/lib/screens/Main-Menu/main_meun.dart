@@ -30,12 +30,16 @@ class _MainMeunState extends State<MainMenu> {
         title: Text('Main Menu'),
       ),
       drawer: CustomDrawer(),
-      body: Container(child: Center(
+      body: Container(
+          child: Center(
         child: StreamBuilder<List<Drink>>(
           stream: _menuBloc.postListStream,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return GridView.count(crossAxisCount: 2, children: List.generate(snapshot.data.length, (index) => Text(snapshot.data[index].toString())));
+              return GridView.count(
+                  crossAxisCount: 2,
+                  children: List.generate(snapshot.data.length,
+                      (index) => Text(snapshot.data[index].toString())));
             } else {
               return CircularProgressIndicator();
             }
