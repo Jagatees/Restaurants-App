@@ -3,6 +3,7 @@ import '../../widgets/drawer.dart';
 import '../../services/Menu-DLI.dart';
 import 'bloc/MenuBloc.dart';
 import '../../class/Drink.dart';
+import 'local-widgets/StructuredGridCell.dart';
 
 class MainMenu extends StatefulWidget {
   @override
@@ -39,7 +40,7 @@ class _MainMeunState extends State<MainMenu> {
               return GridView.count(
                   crossAxisCount: 2,
                   children: List.generate(snapshot.data.length,
-                      (index) => Text(snapshot.data[index].toString())));
+                      (index) => StructuredGridCell(snapshot.data[index])));
             } else {
               return CircularProgressIndicator();
             }
