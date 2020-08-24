@@ -14,6 +14,18 @@ class _SignInPageState extends State<SignIn> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _email, _password;
 
+  //Controller for the email and password
+  TextEditingController _emailContoller = new TextEditingController();
+  TextEditingController _passwordContoller = new TextEditingController();
+
+  @override
+  void initState() {
+    // implement initState
+    super.initState();
+    _emailContoller.text = "user@gmail.com";
+    _passwordContoller.text = "1234567890";
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -23,6 +35,7 @@ class _SignInPageState extends State<SignIn> {
           child: Column(
             children: <Widget>[
               TextFormField(
+                controller: _emailContoller,
                 validator: (input) {
                   if(input.isEmpty){
                     return 'Provide an email';
@@ -34,6 +47,7 @@ class _SignInPageState extends State<SignIn> {
                 onSaved: (input) => _email = input,
               ),
               TextFormField(
+                controller: _passwordContoller,
                 validator: (input) {
                   if(input.length < 6){
                     return 'Longer password please';
