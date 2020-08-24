@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:restaurantsapp/sign_in.dart';
-import 'sign_up.dart';
+
 
 
 void main() {
