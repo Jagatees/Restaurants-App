@@ -9,9 +9,9 @@ class MenuBloc{
 
   //getters
   Stream<List<Drink>> get postListStream => _drinkListSteamController.stream;
-  StreamSink<List<Drink>> get postListSink => _drinkListSteamController.sink;
+  StreamSink<List<Drink>> get drinkListSink => _drinkListSteamController.sink;
 
-  StreamSink<Drink> get postAdd => _drinkListAddController.sink;
+  StreamSink<Drink> get drinkAdd => _drinkListAddController.sink;
 
   MenuBloc() {
     _drinkListSteamController.add([]);
@@ -19,7 +19,7 @@ class MenuBloc{
 
     _drinkListAddController.stream.listen((post) {
       _drinks.add(post);
-      postListSink.add(_drinks);
+      drinkListSink.add(_drinks);
       print(_drinks);
     });
   }

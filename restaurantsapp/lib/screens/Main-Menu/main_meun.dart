@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/drawer.dart';
 import '../../services/Menu-DLI.dart';
 import 'bloc/MenuBloc.dart';
+import '../../class/Drink.dart';
 
 class MainMenu extends StatefulWidget {
   @override
@@ -9,8 +10,6 @@ class MainMenu extends StatefulWidget {
 }
 
 class _MainMeunState extends State<MainMenu> {
-
-
   MenuBloc _menuBloc;
 
   @override
@@ -31,13 +30,17 @@ class _MainMeunState extends State<MainMenu> {
         title: Text('Main Menu'),
       ),
       drawer: CustomDrawer(),
-      body: Container(
-          child: Center(
-        child: StreamBuilder(
+      body: Container(child: Center(
+        child: StreamBuilder<List<Drink>>(
+          stream: _menuBloc.postListStream,
           builder: (context, snapshot) {
-            if(snapshot.hasData){
-
-            }else{
+            if (snapshot.hasData) {
+              return ListView.builder(
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Text(snapshot.data[index].toString());
+                  });
+            } else {
               return CircularProgressIndicator();
             }
           },
