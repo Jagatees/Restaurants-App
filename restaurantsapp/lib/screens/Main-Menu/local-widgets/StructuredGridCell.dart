@@ -36,7 +36,7 @@ class StructuredGridCell extends StatelessWidget {
                 Center(
                   child: Text("Price: \$10.50"),
                 ),
-                FlatButton(onPressed: () => {}, child: Text("Add to cart"))
+                
               ],
             )),
       ),
