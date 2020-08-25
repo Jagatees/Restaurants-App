@@ -4,7 +4,7 @@ import '../../class/Menu.dart';
 
 class MenuBloc{
  List<Drink> _drinks = new List<Drink>();
- List<Menu> _cart = new List<Menu>();
+ static List<Menu> _cart = new List<Menu>();
 
   final _drinkListSteamController = StreamController<List<Drink>>();
   final _drinkListAddController = StreamController<Drink>();
@@ -26,6 +26,7 @@ class MenuBloc{
 
   MenuBloc() {
     _drinkListSteamController.add([]);
+    _cartListSteamController.add(_cart);
     
 
     _drinkListAddController.stream.listen((drink) {
