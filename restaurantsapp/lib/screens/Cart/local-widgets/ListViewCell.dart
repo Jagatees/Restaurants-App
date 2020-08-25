@@ -51,7 +51,12 @@ class _ListViewCellState extends State<ListViewCell>{
           SizedBox(width:10),
           Text(count.toString(),style: TextStyle(fontSize: 20)),
           SizedBox(width:10),
+<<<<<<< HEAD
           IconButton(icon: Icon(Icons.remove), onPressed: () => _removeCart()), 
+=======
+          //IconButton(icon: Icon(Icons.exposure_minus_1), onPressed: () => _removeCart()), // Orignial
+          //IconButton(icon: Icon(Icons.exposure_neg_1), onPressed: () => _removeCart()), // Just Changed Icon name
+>>>>>>> 547c86c8e94d8fb12add673c1cf95ab5dc0e856b
         ],
       ),
     ));
