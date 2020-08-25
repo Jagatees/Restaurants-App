@@ -1,13 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:restaurantsapp/class/Menu.dart';
 
-class Drink{
+class Drink extends Menu{ 
 
-  String ID;
-  String Name;
   String ImageURL;
 
-  Drink({@required this.ID,@required this.Name,@required this.ImageURL});
+  Drink({String ID,@required String Name,@required this.ImageURL}):super(ID,Name);
 
 
   @override
