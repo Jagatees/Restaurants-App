@@ -15,6 +15,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _email, _password;
+  final UserNameController = TextEditingController();
+  final RoleController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +52,21 @@ class _SignUpPageState extends State<SignUpPage> {
                 onSaved: (input) => _password = input,
                 obscureText: true,
               ),
+
+              TextField(
+                decoration: InputDecoration(
+                    labelText: 'Enter your username'
+                ),
+                controller: UserNameController ,
+              ),
+
+              TextField(
+                decoration: InputDecoration(
+                    labelText: 'Enter your Role'
+                ),
+                controller: RoleController ,
+              ),
+
               RaisedButton(
                 onPressed: signUp,
                 child: Text('Sign up'),
@@ -80,13 +98,14 @@ class _SignUpPageState extends State<SignUpPage> {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
         final FirebaseUser user = await FirebaseAuth.instance.currentUser();
         final String uid = user.uid.toString();
-        database.sendUserInfo_withUID(uid, 'jagatees', 'customer');
+        database.sendUserInfo_withUID(uid, UserNameController.text.toString(), RoleController.text.toString());
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainMeun()));
       }catch(e){
         print(e.message);
       }
     }
   }
+
 
 
 
