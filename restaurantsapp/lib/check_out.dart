@@ -38,7 +38,7 @@ class CheckOutPageState extends State<CheckOut> {
               padding: EdgeInsets.all(8.0),
               splashColor: Colors.blueAccent,
               onPressed: () {
-                _creditCard.payViaNewCard(context, '99');
+                _creditCard.payViaNewCard(context, '2100');
               },
               child: Text(
                 "Pay with Card",
