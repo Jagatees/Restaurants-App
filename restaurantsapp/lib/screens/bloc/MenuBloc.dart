@@ -4,12 +4,13 @@ import '../../class/Menu.dart';
 
 class MenuBloc{
  List<Drink> _drinks = new List<Drink>();
- static List<Menu> _cart = new List<Menu>();
+ static Map<String, List<Menu>> _cart = {};
+ int cartCount = 0;
 
   final _drinkListSteamController = StreamController<List<Drink>>();
   final _drinkListAddController = StreamController<Drink>();
 
-  final _cartListSteamController = StreamController<List<Menu>>();
+  final _cartListSteamController = StreamController<Map<String, List<Menu>>>();
   final _cartAddSteamController = StreamController<Menu>();
 
 
@@ -17,14 +18,17 @@ class MenuBloc{
   Stream<List<Drink>> get drinkListStream => _drinkListSteamController.stream;
   StreamSink<List<Drink>> get drinkListSink => _drinkListSteamController.sink;
 
-  Stream<List<Menu>> get cartListStream => _cartListSteamController.stream;
-  StreamSink<List<Menu>> get cartListSink => _cartListSteamController.sink;
+  Stream<Map<String, List<Menu>>> get cartListStream => _cartListSteamController.stream;
+  StreamSink<Map<String, List<Menu>>> get cartListSink => _cartListSteamController.sink;
 
 
   StreamSink<Drink> get drinkAdd => _drinkListAddController.sink;
   StreamSink<Menu> get cartAdd => _cartAddSteamController.sink;
 
   MenuBloc() {
+
+    cartCount = _cart.length;
+
     _drinkListSteamController.add([]);
     _cartListSteamController.add(_cart);
     
@@ -36,8 +40,15 @@ class MenuBloc{
 
 
     _cartAddSteamController.stream.listen((menu) {
-      _cart.add(menu);
-      cartListSink.add(_drinks);
+
+      if(_cart[menu.ID] == null){
+        _cart[menu.ID] = List<Menu>();
+        _cart[menu.ID].add(menu);
+      }else{
+        _cart[menu.ID].add(menu);
+      }
+
+      cartListSink.add(_cart);
       print("Menu Added: "+menu.toString());
     });
 
