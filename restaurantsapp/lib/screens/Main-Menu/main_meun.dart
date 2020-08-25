@@ -26,13 +26,15 @@ class _MainMeunState extends State<MainMenu> {
 
   @override
   Widget build(BuildContext context) {
-
     final double itemHeight = 290.8;
     final double itemWidth = 187.5;
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Main Menu'),
+        actions: [
+          IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: null)
+        ],
       ),
       drawer: CustomDrawer(),
       body: Container(
@@ -45,8 +47,11 @@ class _MainMeunState extends State<MainMenu> {
                   crossAxisCount: 2,
                   shrinkWrap: true,
                   childAspectRatio: (itemWidth / itemHeight),
-                  children: List.generate(snapshot.data.length,
-                      (index) => StructuredGridCell(snapshot.data[index])));
+                  children: List.generate(
+                      snapshot.data.length,
+                      (index) => GestureDetector(
+                          onTap: () => print("Card clicked"),
+                          child: StructuredGridCell(snapshot.data[index]))));
             } else {
               return CircularProgressIndicator();
             }
