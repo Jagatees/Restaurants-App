@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:restaurantsapp/New-FramWork/models/brew.dart';
-import 'package:restaurantsapp/New-FramWork/models/user.dart';
+import 'package:restaurantsapp/class/brew.dart';
+import 'package:restaurantsapp/class/user.dart';
 
 class DatabaseService {
 

@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurantsapp/New-FramWork/models/brew.dart';
-import 'package:restaurantsapp/New-FramWork/screens/home/settings_form.dart';
-import 'package:restaurantsapp/New-FramWork/services/auth.dart';
-import 'package:restaurantsapp/New-FramWork/services/database.dart';
+import 'package:restaurantsapp/class/brew.dart';
+import 'package:restaurantsapp/screens/home/settings_form.dart';
+import 'package:restaurantsapp/services/auth.dart';
+import 'package:restaurantsapp/services/database.dart';
 import 'package:restaurantsapp/widgets/drawer.dart';
 
 class Home extends StatelessWidget {

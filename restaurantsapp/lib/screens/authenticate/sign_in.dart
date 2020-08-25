@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:restaurantsapp/New-FramWork/services/auth.dart';
-import 'package:restaurantsapp/New-FramWork/shared/constants.dart';
-import 'package:restaurantsapp/New-FramWork/shared/loading.dart';
+import 'package:restaurantsapp/services/auth.dart';
+import 'package:restaurantsapp/shared/constants.dart';
+import 'package:restaurantsapp/shared/loading.dart';
 
 class SignIn extends StatefulWidget {
 
@@ -22,6 +22,17 @@ class _SignInState extends State<SignIn> {
   // text field state
   String email = 'rajoojagateesvaran@gmail.com';
   String password = '1234567890';
+
+   TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _email.text = "user@gmail.com";
+    _password.text = "1234567890";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +58,8 @@ class _SignInState extends State<SignIn> {
             children: <Widget>[
               SizedBox(height: 20.0),
               TextFormField(
-                decoration: textInputDecoration.copyWith(hintText: 'email'),
+                controller: _email,
+                decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() => email = val);
@@ -55,8 +67,9 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                controller: _password,
                 obscureText: true,
-                decoration: textInputDecoration.copyWith(hintText: 'password'),
+                decoration: textInputDecoration.copyWith(hintText: 'Password'),
                 validator: (val) => val.length < 6 ? 'Enter a password 6+ chars long' : null,
                 onChanged: (val) {
                   setState(() => password = val);

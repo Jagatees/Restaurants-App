@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurantsapp/New-FramWork/screens/wrapper.dart';
-import 'package:restaurantsapp/New-FramWork/services/auth.dart';
+import 'package:restaurantsapp/screens/wrapper.dart';
+import 'package:restaurantsapp/services/auth.dart';
 
-import 'models/user.dart';
+import '../class/user.dart';
 
 
 void main() => runApp(MyApp());

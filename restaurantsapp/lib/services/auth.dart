@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:restaurantsapp/New-FramWork/models/user.dart';
+import 'package:restaurantsapp/class/user.dart';
 
 import 'database.dart';
 

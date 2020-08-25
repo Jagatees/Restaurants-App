@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurantsapp/New-FramWork/screens/home/settings_form.dart';
-import 'package:restaurantsapp/New-FramWork/services/auth.dart';
+import 'package:restaurantsapp/screens/home/settings_form.dart';
+import 'package:restaurantsapp/services/auth.dart';
 import '../../widgets/drawer.dart';
 import '../../services/Menu-DLI.dart';
 import '../bloc/MenuBloc.dart';

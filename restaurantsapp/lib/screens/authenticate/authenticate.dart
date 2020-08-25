@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurantsapp/New-FramWork/screens/authenticate/register.dart';
-import 'package:restaurantsapp/New-FramWork/screens/authenticate/sign_in.dart';
+import 'package:restaurantsapp/screens/authenticate/register.dart';
+import 'package:restaurantsapp/screens/authenticate/sign_in.dart';
 
 class Authenticate extends StatefulWidget {
   @override

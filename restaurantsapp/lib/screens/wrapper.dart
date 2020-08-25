@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurantsapp/New-FramWork/models/user.dart';
+import 'package:restaurantsapp/class/user.dart';
 import 'package:restaurantsapp/screens/Main-Menu/main_meun.dart';
 
-import 'authenticate/authenticate.dart';
+import '../screens/authenticate/authenticate.dart';
 //import 'home/home.dart';
 
 class Wrapper extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurantsapp/New-FramWork/models/user.dart';
-import 'package:restaurantsapp/New-FramWork/services/database.dart';
-import 'package:restaurantsapp/New-FramWork/shared/constants.dart';
-import 'package:restaurantsapp/New-FramWork/shared/loading.dart';
+import 'package:restaurantsapp/class/user.dart';
+import 'package:restaurantsapp/services/database.dart';
+import 'package:restaurantsapp/shared/constants.dart';
+import 'package:restaurantsapp/shared/loading.dart';
 
 class SettingsForm extends StatefulWidget {
   @override

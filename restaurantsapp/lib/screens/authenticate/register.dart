@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:restaurantsapp/New-FramWork/services/auth.dart';
-import 'package:restaurantsapp/New-FramWork/shared/constants.dart';
-import 'package:restaurantsapp/New-FramWork/shared/loading.dart';
+import 'package:restaurantsapp/services/auth.dart';
+import 'package:restaurantsapp/shared/constants.dart';
+import 'package:restaurantsapp/shared/loading.dart';
 
 class Register extends StatefulWidget {
 
