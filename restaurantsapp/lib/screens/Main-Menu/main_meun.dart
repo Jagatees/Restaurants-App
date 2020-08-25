@@ -27,7 +27,7 @@ class _MainMeunState extends State<MainMenu> {
   @override
   Widget build(BuildContext context) {
 
-    final double itemHeight = 290.8;
+    final double itemHeight = 300.8;
     final double itemWidth = 187.5;
 
     return Scaffold(
