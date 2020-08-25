@@ -99,7 +99,6 @@ class _SignUpPageState extends State<SignUpPage> {
         final FirebaseUser user = await FirebaseAuth.instance.currentUser();
         final String uid = user.uid.toString();
         database.sendUserInfo_withUID(uid, UserNameController.text.toString(), RoleController.text.toString());
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainMeun()));
         database.sendUserInfo_withUID(uid, 'jagatees', 'customer');
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainMenu()));
       }catch(e){
