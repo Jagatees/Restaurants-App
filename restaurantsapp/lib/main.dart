@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurantsapp/screens/Main-Menu/main_meun.dart';
+import 'package:restaurantsapp/screens/Cart/cart.dart';
 import 'package:restaurantsapp/sign_in.dart';
 
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: <String, WidgetBuilder>{
-        '/Main-Menu': (BuildContext context) => MainMenu()
+        '/Main-Menu': (BuildContext context) => MainMenu(),
+        '/Cart': (BuildContext context) => Cart()
       },
       home: SignIn(),
     );

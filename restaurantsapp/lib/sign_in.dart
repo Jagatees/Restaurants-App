@@ -2,8 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurantsapp/sign_up.dart';
 
-import 'screens/Main-Menu/main_meun.dart';
-
 class SignIn extends StatefulWidget {
   @override
   _SignInPageState createState() => new _SignInPageState();
