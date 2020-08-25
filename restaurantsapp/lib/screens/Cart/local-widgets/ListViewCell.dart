@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../../class/Menu.dart';
+import '../../bloc/MenuBloc.dart';
 
 class ListViewCell extends StatelessWidget {
   Menu menu;
   final int count;
-  ListViewCell(this.menu, this.count);
+  final MenuBloc menuBloc;
+  ListViewCell(this.menu, this.count, this.menuBloc);
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +23,11 @@ class ListViewCell extends StatelessWidget {
           SizedBox(width:20),
           Expanded(child: Text(menu.Name, style: TextStyle(fontSize: 15),)),
           SizedBox(width:30),
-          IconButton(icon: Icon(Icons.plus_one), onPressed: () => {}),
+          IconButton(icon: Icon(Icons.plus_one), onPressed: () => menuBloc.cartAdd.add(menu)),
           SizedBox(width:10),
           Text(count.toString(),style: TextStyle(fontSize: 20)),
           SizedBox(width:10),
-          IconButton(icon: Icon(Icons.exposure_minus_1), onPressed: () => {}),
+          IconButton(icon: Icon(Icons.exposure_minus_1), onPressed: () => menuBloc.cartRemove.add(menu.ID)),
         ],
       ),
     ));

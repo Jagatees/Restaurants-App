@@ -12,6 +12,7 @@ class MenuBloc{
 
   final _cartListSteamController = StreamController<Map<String, List<Menu>>>();
   final _cartAddSteamController = StreamController<Menu>();
+  final _cartRemoveSteamController = StreamController<String>();
 
 
   //getters
@@ -23,7 +24,9 @@ class MenuBloc{
 
 
   StreamSink<Drink> get drinkAdd => _drinkListAddController.sink;
+
   StreamSink<Menu> get cartAdd => _cartAddSteamController.sink;
+  StreamSink<String> get cartRemove => _cartRemoveSteamController.sink;
 
   MenuBloc() {
 
@@ -52,6 +55,19 @@ class MenuBloc{
       print("Menu Added: "+menu.toString());
     });
 
+    _cartRemoveSteamController.stream.listen((value) {
+      Menu menu = null;
+      if(_cart[value].length == 1){
+        menu = _cart[value].last;
+        _cart.remove(value);
+      }
+      else
+      menu = _cart[value].removeLast();
+
+      print("Cart removed: " + menu.toString());
+
+    });
+
   }
 
   void dispose() {
@@ -59,6 +75,7 @@ class MenuBloc{
     _drinkListSteamController.close();
     _cartListSteamController.close();
     _cartAddSteamController.close();
+    _cartRemoveSteamController.close();
   }
 }
 
