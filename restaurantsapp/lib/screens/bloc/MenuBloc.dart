@@ -28,6 +28,18 @@ class MenuBloc{
   StreamSink<Menu> get cartAdd => _cartAddSteamController.sink;
   StreamSink<String> get cartRemove => _cartRemoveSteamController.sink;
 
+  double getCartAmount() {
+    List<String> keys = _cart.keys.toList();
+    
+    double amount = 0;
+
+    for (int i = 0; i < keys.length; i++){
+      
+      amount += _cart[keys[i]][1].Price * _cart[keys[i]].length;
+    }
+    return amount;
+  }
+
   MenuBloc() {
 
     cartCount = _cart.length;
@@ -66,7 +78,6 @@ class MenuBloc{
 
 
       cartListSink.add(_cart);
-
 
 
       print("Cart removed: " + menu.toString());

@@ -1,10 +1,10 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:restaurantsapp/screens/bloc/MenuBloc.dart';
 import '../bloc/MenuBloc.dart';
 import '../../class/Menu.dart';
 import 'local-widgets/ListViewCell.dart';
+import '../../screens/Screen-Arguments/checkout.dart';
 
 class Cart extends StatefulWidget {
   //Defualt construtor
@@ -23,6 +23,7 @@ class _CartState extends State<Cart> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: Text("Cart View"),
@@ -30,7 +31,9 @@ class _CartState extends State<Cart> {
       body: StreamBuilder<Map<String, List<Menu>>>(
         stream: _menuBloc.cartListStream,
         builder: (context, snapshot) {
+
           if (snapshot.hasData) {
+
             List<String> keys = snapshot.data.keys.toList();
 
             return Column(
@@ -51,8 +54,14 @@ class _CartState extends State<Cart> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: SizedBox(
-                      width: double.infinity,
-                      child: RaisedButton(color: Colors.blueAccent[400],onPressed: () => {}, child: Text("Checkout", style: TextStyle(color: Colors.white),))),
+                        width: double.infinity,
+                        child: RaisedButton(
+                            color: Colors.blueAccent[400],
+                            onPressed: () => Navigator.pushNamed(context, "/Checkout", arguments: ScreenArgumentsCheckout(_menuBloc.getCartAmount())),
+                            child: Text(
+                              "Checkout",
+                              style: TextStyle(color: Colors.white),
+                            ))),
                   ),
                 )
               ],

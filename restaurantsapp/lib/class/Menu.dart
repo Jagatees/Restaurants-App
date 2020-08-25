@@ -2,8 +2,9 @@ class Menu{
   String Name;
   String ID;
   String ImageURL;
+  double Price;
 
-  Menu(this.ID, this.Name, this.ImageURL);
+  Menu(this.ID, this.Name, this.ImageURL, this.Price);
 
   @override
   String toString() {

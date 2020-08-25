@@ -6,7 +6,7 @@ class Drink extends Menu{
 
   
 
-  Drink({@required String ID,@required String Name,@required String ImageURL}):super(ID,Name, ImageURL);
+  Drink({@required String ID,@required String Name,@required String ImageURL, double Price}):super(ID,Name, ImageURL, 10.50);
 
 
   @override
