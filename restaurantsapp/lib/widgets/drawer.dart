@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:restaurantsapp/New-FramWork/screens/home/home.dart';
 import 'package:restaurantsapp/check_out.dart';
+import 'package:restaurantsapp/screens/Main-Menu/main_meun.dart';
 import '../profile.dart';
 import '../feedback_form.dart';
-import 'package:restaurantsapp/check_out.dart';
+
 
 
 class CustomDrawer extends StatelessWidget{
@@ -67,7 +67,7 @@ class CustomDrawer extends StatelessWidget{
                 Navigator.of(context).pop();
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Home()),
+                  MaterialPageRoute(builder: (context) => MainMenu()),
                 );
               } ,
             ),
