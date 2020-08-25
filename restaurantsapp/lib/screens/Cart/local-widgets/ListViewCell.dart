@@ -51,8 +51,8 @@ class _ListViewCellState extends State<ListViewCell>{
           SizedBox(width:10),
           Text(count.toString(),style: TextStyle(fontSize: 20)),
           SizedBox(width:10),
-          //IconButton(icon: Icon(Icons.exposure_minus_1), onPressed: () => _removeCart()),
-          IconButton(icon: Icon(Icons.exposure_neg_1), onPressed: () => _removeCart()), //did u mean it to be this ?
+          //IconButton(icon: Icon(Icons.exposure_minus_1), onPressed: () => _removeCart()), // Orignial
+          //IconButton(icon: Icon(Icons.exposure_neg_1), onPressed: () => _removeCart()), // Just Changed Icon name
         ],
       ),
     ));
