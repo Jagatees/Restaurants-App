@@ -3,26 +3,38 @@ import 'payment_service.dart';
 
 import 'package:restaurantsapp/payment_service.dart';
 import 'package:restaurantsapp/credit_card.dart';
+import 'screens/Screen-Arguments/checkout.dart';
 
 
 class CheckOut extends StatefulWidget {
+  String amount;
+
+  CheckOut(this.amount);
+
   @override
-  CheckOutPageState createState() => CheckOutPageState();
+  CheckOutPageState createState() => CheckOutPageState(this.amount);
 }
 
 class CheckOutPageState extends State<CheckOut> {
 
   CreditCard _creditCard = new CreditCard();
 
+  String amount;
+  CheckOutPageState(this.amount);
+
   @override
   void initState() {
     super.initState();
     StripeService.init();
+
   }
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
+
+    final ScreenArgumentsCheckout args = ModalRoute.of(context).settings.arguments;
+    print(args.amount);
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
@@ -39,6 +51,7 @@ class CheckOutPageState extends State<CheckOut> {
               splashColor: Colors.blueAccent,
               onPressed: () {
                 _creditCard.payViaNewCard(context, '2100');
+                _creditCard.payViaNewCard(context, args.amount.toString());
               },
               child: Text(
                 "Pay with Card",
