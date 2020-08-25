@@ -26,6 +26,10 @@ class _MainMeunState extends State<MainMenu> {
 
   @override
   Widget build(BuildContext context) {
+
+    final double itemHeight = 290.8;
+    final double itemWidth = 187.5;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Main Menu'),
@@ -39,6 +43,8 @@ class _MainMeunState extends State<MainMenu> {
             if (snapshot.hasData) {
               return GridView.count(
                   crossAxisCount: 2,
+                  shrinkWrap: true,
+                  childAspectRatio: (itemWidth / itemHeight),
                   children: List.generate(snapshot.data.length,
                       (index) => StructuredGridCell(snapshot.data[index])));
             } else {
