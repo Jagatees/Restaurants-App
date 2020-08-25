@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurantsapp/screens/bloc/MenuBloc.dart';
 import '../bloc/MenuBloc.dart';
 import '../../class/Menu.dart';
+import 'local-widgets/ListViewCell.dart';
 
 class Cart extends StatefulWidget{
 
@@ -33,10 +34,7 @@ class _CartState extends State<Cart>{
           if(snapshot.hasData){
             return ListView.separated(
               itemCount: snapshot.data.length ,
-              itemBuilder: (BuildContext context, int index){
-               return Card(child: Text(snapshot.data[index].toString()),);
-                
-            } ,
+              itemBuilder: (BuildContext context, int index) => ListViewCell(snapshot.data[index]),
             separatorBuilder: (BuildContext context, int index) {
               return Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 5),);
             }

@@ -4,9 +4,9 @@ import 'package:restaurantsapp/class/Menu.dart';
 
 class Drink extends Menu{ 
 
-  String ImageURL;
+  
 
-  Drink({String ID,@required String Name,@required this.ImageURL}):super(ID,Name);
+  Drink({@required String ID,@required String Name,@required String ImageURL}):super(ID,Name, ImageURL);
 
 
   @override
