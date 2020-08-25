@@ -3,6 +3,7 @@ import 'package:restaurantsapp/New-FramWork/screens/home/home.dart';
 import 'package:restaurantsapp/check_out.dart';
 import '../profile.dart';
 import '../feedback_form.dart';
+import 'package:restaurantsapp/check_out.dart';
 
 
 class CustomDrawer extends StatelessWidget{
@@ -45,17 +46,15 @@ class CustomDrawer extends StatelessWidget{
               } ,
             ),
 
-
-
             new ListTile(
               title: new Text(
-                  'Credit Cards'
+                  'Credit Cards Real'
               ),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CheckOut('10')),
+                  MaterialPageRoute(builder: (context) => CheckOut('9900')),
                 );
               } ,
             ),

@@ -9,10 +9,25 @@ class DatabaseService {
 
   // collection reference
   final CollectionReference brewCollection = Firestore.instance.collection('user');
+  final CollectionReference feedBackCollection = Firestore.instance.collection('feedback');
+  final CollectionReference transactionCollection = Firestore.instance.collection('transaction');
 
   Future<void> updateUserData(String name) async {
     return await brewCollection.document(uid).setData({
       'name': name,
+    });
+  }
+
+  Future<void> sendFeedback(String feedback, double rating) async {
+    return await feedBackCollection.add({
+      'feedback': feedback,
+      'rating': rating,
+    });
+  }
+
+  Future<void> sendTransaction(var feedback) async {
+    return await transactionCollection.add({
+      'feedback': feedback,
     });
   }
 

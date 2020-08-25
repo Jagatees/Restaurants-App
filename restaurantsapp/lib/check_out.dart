@@ -6,21 +6,19 @@ import 'package:restaurantsapp/credit_card.dart';
 import 'screens/Screen-Arguments/checkout.dart';
 
 
+// ignore: must_be_immutable
 class CheckOut extends StatefulWidget {
   String amount;
 
   CheckOut(this.amount);
 
   @override
-  CheckOutPageState createState() => CheckOutPageState(this.amount);
+  CheckOutPageState createState() => CheckOutPageState();
 }
 
 class CheckOutPageState extends State<CheckOut> {
 
   CreditCard _creditCard = new CreditCard();
-
-  String amount;
-  CheckOutPageState(this.amount);
 
   @override
   void initState() {
@@ -31,10 +29,6 @@ class CheckOutPageState extends State<CheckOut> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-
-    final ScreenArgumentsCheckout args = ModalRoute.of(context).settings.arguments;
-    print(args.amount);
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
@@ -50,8 +44,7 @@ class CheckOutPageState extends State<CheckOut> {
               padding: EdgeInsets.all(8.0),
               splashColor: Colors.blueAccent,
               onPressed: () {
-                _creditCard.payViaNewCard(context, '2100');
-                _creditCard.payViaNewCard(context, args.amount.toString());
+                _creditCard.payViaNewCard(context, widget.amount);
               },
               child: Text(
                 "Pay with Card",

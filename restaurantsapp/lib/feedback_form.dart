@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:restaurantsapp/New-FramWork/services/database.dart';
 import 'screens/Main-Menu/main_meun.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class FeedBackForm extends StatelessWidget {
+
+  DatabaseService databaseService = new DatabaseService();
 
   double score = 3;
   TextEditingController feedbackInput = new TextEditingController();
@@ -78,6 +80,7 @@ class FeedBackForm extends StatelessWidget {
                   }else{
                     print('feedback is not emepty');
                     //database.sendFeedbackToDatabase('feedback', score, feedbackInput.text.toString());
+                    databaseService.sendFeedback(feedbackInput.text, score);
                     showAlertDialog(context);
                   }
               },
