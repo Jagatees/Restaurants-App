@@ -2,14 +2,38 @@ import 'package:flutter/material.dart';
 import '../../../class/Menu.dart';
 import '../../bloc/MenuBloc.dart';
 
-class ListViewCell extends StatelessWidget {
+class ListViewCell extends StatefulWidget{
+
   Menu menu;
-  final int count;
+  int count;
   final MenuBloc menuBloc;
   ListViewCell(this.menu, this.count, this.menuBloc);
 
   @override
+  State<StatefulWidget> createState() => _ListViewCellState(menu, count, menuBloc);
+
+}
+
+class _ListViewCellState extends State<ListViewCell>{
+
+  Menu menu;
+  int count;
+  final MenuBloc menuBloc;
+  _ListViewCellState(this.menu, this.count, this.menuBloc);
+
+  @override
   Widget build(BuildContext context) {
+
+    _addCart(){
+      menuBloc.cartAdd.add(menu);
+      setState(() => count = count + 1);
+    }
+
+    _removeCart(){
+      menuBloc.cartRemove.add(menu.ID);
+      setState(() => count = count - 1);
+    }
+
     return Card(
         child: Container(
       padding: const EdgeInsets.all(8.0),
@@ -23,13 +47,15 @@ class ListViewCell extends StatelessWidget {
           SizedBox(width:20),
           Expanded(child: Text(menu.Name, style: TextStyle(fontSize: 15),)),
           SizedBox(width:30),
-          IconButton(icon: Icon(Icons.plus_one), onPressed: () => menuBloc.cartAdd.add(menu)),
+          IconButton(icon: Icon(Icons.plus_one), onPressed: () => _addCart()),
           SizedBox(width:10),
           Text(count.toString(),style: TextStyle(fontSize: 20)),
           SizedBox(width:10),
-          IconButton(icon: Icon(Icons.exposure_minus_1), onPressed: () => menuBloc.cartRemove.add(menu.ID)),
+          IconButton(icon: Icon(Icons.exposure_minus_1), onPressed: () => _removeCart()),
         ],
       ),
     ));
   }
+
 }
+

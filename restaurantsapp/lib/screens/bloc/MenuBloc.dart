@@ -62,7 +62,12 @@ class MenuBloc{
         _cart.remove(value);
       }
       else
-      menu = _cart[value].removeLast();
+        menu = _cart[value].removeLast();
+
+
+      cartListSink.add(_cart);
+
+
 
       print("Cart removed: " + menu.toString());
 
