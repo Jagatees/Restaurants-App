@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import '../screens/Main-Menu/bloc/MenuBloc.dart';
+import '../screens/bloc/MenuBloc.dart';
 import '../class/Drink.dart';
 
 class MenuDLI{

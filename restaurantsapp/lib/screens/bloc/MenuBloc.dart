@@ -1,6 +1,6 @@
 import 'dart:async';
-import '../../../class/Drink.dart';
-import '../../../class/Menu.dart';
+import '../../class/Drink.dart';
+import '../../class/Menu.dart';
 
 class MenuBloc{
  List<Drink> _drinks = new List<Drink>();

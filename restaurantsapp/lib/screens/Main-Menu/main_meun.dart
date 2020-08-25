@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../widgets/drawer.dart';
 import '../../services/Menu-DLI.dart';
-import 'bloc/MenuBloc.dart';
+import '../bloc/MenuBloc.dart';
 import '../../class/Drink.dart';
 import 'local-widgets/StructuredGridCell.dart';
 
