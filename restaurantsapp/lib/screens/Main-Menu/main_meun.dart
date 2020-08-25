@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:restaurantsapp/New-FramWork/screens/home/settings_form.dart';
+import 'package:restaurantsapp/New-FramWork/services/auth.dart';
 import '../../widgets/drawer.dart';
 import '../../services/Menu-DLI.dart';
 import '../bloc/MenuBloc.dart';
 import '../../class/Drink.dart';
 import 'local-widgets/StructuredGridCell.dart';
+
+// Jeya
 
 class MainMenu extends StatefulWidget {
   @override
@@ -12,6 +16,8 @@ class MainMenu extends StatefulWidget {
 
 class _MainMeunState extends State<MainMenu> {
   MenuBloc _menuBloc;
+  final AuthService _auth = AuthService();
+
 
   @override
   void initState() {
@@ -26,37 +32,61 @@ class _MainMeunState extends State<MainMenu> {
 
   @override
   Widget build(BuildContext context) {
+
+    void _showSettingsPanel() {
+      showModalBottomSheet(context: context, builder: (context) {
+        return Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+          child: SettingsForm(),
+        );
+      });
+    }
+
+
     final double itemHeight = 290.8;
     final double itemWidth = 187.5;
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Main Menu'),
-        actions: [
-          IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () => Navigator.pushNamed(context, "/Cart"))
+        actions: <Widget>[
+          FlatButton.icon(
+            icon: Icon(Icons.person),
+            label: Text('logout'),
+            onPressed: () async {
+              await _auth.signOut();
+            },
+          ),
+          FlatButton.icon(
+            icon: Icon(Icons.settings),
+            label: Text('Profile'),
+            onPressed: () => _showSettingsPanel(),
+          ),
+
+          IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () => Navigator.pushNamed(context, "/Cart")),
         ],
       ),
       drawer: CustomDrawer(),
       body: Container(
           child: Center(
-        child: StreamBuilder<List<Drink>>(
-          stream: _menuBloc.drinkListStream,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return GridView.count(
-                  crossAxisCount: 2,
-                  shrinkWrap: true,
-                  childAspectRatio: (itemWidth / itemHeight),
-                  children: List.generate(
-                      snapshot.data.length,
-                      (index) => GestureDetector(
-                          onTap: () => _menuBloc.cartAdd.add(snapshot.data[index]),
-                          child: StructuredGridCell(snapshot.data[index]))));
-            } else {
-              return CircularProgressIndicator();
-            }
-          },
-        ),
+            child: StreamBuilder<List<Drink>>(
+              stream: _menuBloc.drinkListStream,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return GridView.count(
+                      crossAxisCount: 2,
+                      shrinkWrap: true,
+                      childAspectRatio: (itemWidth / itemHeight),
+                      children: List.generate(
+                          snapshot.data.length,
+                          (index) => GestureDetector(
+                              onTap: () => _menuBloc.cartAdd.add(snapshot.data[index]),
+                              child: StructuredGridCell(snapshot.data[index]))));
+                } else {
+                  return CircularProgressIndicator();
+                }
+              },
+            ),
       )),
     );
   }

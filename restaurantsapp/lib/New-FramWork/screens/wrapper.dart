@@ -2,9 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurantsapp/New-FramWork/models/user.dart';
+import 'package:restaurantsapp/screens/Main-Menu/main_meun.dart';
 
 import 'authenticate/authenticate.dart';
-import 'home/home.dart';
+//import 'home/home.dart';
 
 class Wrapper extends StatelessWidget {
   @override
@@ -16,7 +17,7 @@ class Wrapper extends StatelessWidget {
     if (user == null){
       return Authenticate();
     } else {
-      return Home();
+      return MainMenu();
     }
     
   }
