@@ -40,7 +40,7 @@ class _MainMeunState extends State<MainMenu> {
       body: Container(
           child: Center(
         child: StreamBuilder<List<Drink>>(
-          stream: _menuBloc.postListStream,
+          stream: _menuBloc.drinkListStream,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return GridView.count(
@@ -50,7 +50,7 @@ class _MainMeunState extends State<MainMenu> {
                   children: List.generate(
                       snapshot.data.length,
                       (index) => GestureDetector(
-                          onTap: () => print("Card clicked"),
+                          onTap: () => _menuBloc.cartAdd.add(snapshot.data[index]),
                           child: StructuredGridCell(snapshot.data[index]))));
             } else {
               return CircularProgressIndicator();
