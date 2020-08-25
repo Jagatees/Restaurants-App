@@ -47,12 +47,11 @@ class _ListViewCellState extends State<ListViewCell>{
           SizedBox(width:20),
           Expanded(child: Text(menu.Name, style: TextStyle(fontSize: 15),)),
           SizedBox(width:30),
-          IconButton(icon: Icon(Icons.plus_one), onPressed: () => _addCart()),
+          IconButton(icon: Icon(Icons.add), onPressed: () => _addCart()),
           SizedBox(width:10),
           Text(count.toString(),style: TextStyle(fontSize: 20)),
           SizedBox(width:10),
-          //IconButton(icon: Icon(Icons.exposure_minus_1), onPressed: () => _removeCart()),
-          IconButton(icon: Icon(Icons.exposure_neg_1), onPressed: () => _removeCart()), //did u mean it to be this ?
+          IconButton(icon: Icon(Icons.remove), onPressed: () => _removeCart()), 
         ],
       ),
     ));
