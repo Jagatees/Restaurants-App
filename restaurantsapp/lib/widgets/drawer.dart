@@ -54,7 +54,7 @@ class CustomDrawer extends StatelessWidget{
                 Navigator.of(context).pop();
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CheckOut('9900')),
+                  MaterialPageRoute(builder: (context) => CheckOut()),
                 );
               } ,
             ),
