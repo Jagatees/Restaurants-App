@@ -6,13 +6,20 @@ import 'package:restaurantsapp/credit_card.dart';
 
 
 class CheckOut extends StatefulWidget {
+  String amount;
+
+  CheckOut(this.amount);
+
   @override
-  CheckOutPageState createState() => CheckOutPageState();
+  CheckOutPageState createState() => CheckOutPageState(this.amount);
 }
 
 class CheckOutPageState extends State<CheckOut> {
 
   CreditCard _creditCard = new CreditCard();
+
+  String amount;
+  CheckOutPageState(this.amount);
 
   @override
   void initState() {
@@ -38,7 +45,7 @@ class CheckOutPageState extends State<CheckOut> {
               padding: EdgeInsets.all(8.0),
               splashColor: Colors.blueAccent,
               onPressed: () {
-                _creditCard.payViaNewCard(context, '99');
+                _creditCard.payViaNewCard(context, amount);
               },
               child: Text(
                 "Pay with Card",
