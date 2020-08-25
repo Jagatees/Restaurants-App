@@ -16,7 +16,7 @@ class Profile extends StatelessWidget {
           children: <Widget> [
             CircleAvatar(
               radius: 50.0,
-              backgroundImage: AssetImage('images/unnamed.jpg'),
+              backgroundImage: AssetImage('assets/images/profile_picture.jpg'),
             ),
             Text(
               'SHOP NAME',

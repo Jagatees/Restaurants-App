@@ -1,32 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:restaurantsapp/check_out.dart';
+import '../profile.dart';
+import '../feedback_form.dart';
+import '../user_info.dart';
 
-import 'profile.dart';
-import 'feedback_form.dart';
-import 'user_info.dart';
+class CustomDrawer extends StatelessWidget{
+  
+  const CustomDrawer();
 
-
-class MainMeun extends StatefulWidget {
-  @override
-  _MainMeunState createState() => _MainMeunState();
-}
-
-class _MainMeunState extends State<MainMeun> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Main Meun'),
-      ),
-
-      drawer: new Drawer(
+    return new Drawer(
         child: ListView(
           children: <Widget>[
             new UserAccountsDrawerHeader(
                 accountName: new Text('Sam'),
                 accountEmail: new Text('jagateesvaran'),
               currentAccountPicture: new CircleAvatar(
-                backgroundImage: new AssetImage('images/unnamed.jpg'),
+                backgroundImage: new AssetImage('assets/images/profile_picture.jpg'),
               ),
             ),
             new ListTile(
@@ -88,7 +79,6 @@ class _MainMeunState extends State<MainMeun> {
 
           ],
         ),
-      ),
-    );
+      );
   }
 }
