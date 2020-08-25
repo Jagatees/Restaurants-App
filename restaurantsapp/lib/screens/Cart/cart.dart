@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class Cart extends StatefulWidget{
@@ -17,7 +15,10 @@ class _CartState extends State<Cart>{
   @override
   Widget build(BuildContext context) {
 
-    return Center(child: Text("Cart View"));
+    return Scaffold(
+      appBar: AppBar(title: Text("Cart View"),),
+      body: Center(child: Text("Hello Cart View"),),
+    );
 
   }
 }

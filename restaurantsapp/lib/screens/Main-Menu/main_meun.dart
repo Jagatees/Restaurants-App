@@ -33,7 +33,7 @@ class _MainMeunState extends State<MainMenu> {
       appBar: AppBar(
         title: Text('Main Menu'),
         actions: [
-          IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () => Navigator.pushNamed(context, "/Main-Menu"))
+          IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () => Navigator.pushNamed(context, "/Cart"))
         ],
       ),
       drawer: CustomDrawer(),
