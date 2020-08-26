@@ -33,25 +33,13 @@ class _ReservationState extends State<Reservation> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               List<String> keys = snapshot.data.keys.toList();
-              return Column(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
+              return ListView.builder(
                         itemBuilder: (BuildContext context, int index) =>
                             ListViewCell(
                                 snapshot.data[keys[index]], keys[index]),
-                        itemCount: keys.length),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: double.infinity,
-                        child: SafeArea(
-                            child: RaisedButton(
-                                onPressed: () => {}, child: Text("Reserve")))),
-                  )
-                ],
-              );
+                        itemCount: keys.length);
+                  
+              
             } else {
               return CircularProgressIndicator();
             }

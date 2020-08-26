@@ -24,6 +24,8 @@ class ReservationData {
 
   String get dateTime => "${this._dateTime.day}/${this._dateTime.month}/${this._dateTime.year}";
 
+  DateTime get getDateTime => _dateTime;
+
   @override
   String toString() {
     return "Reservation on ${this._dateTime} has ${this.slots} from ${this.timeSlots} and is ${this.isAvailable}";

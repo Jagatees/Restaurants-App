@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:restaurantsapp/screens/Screen-Arguments/ReservationInfo.dart';
 import '../../../class/Reservation-Data.dart';
+import '../Reservation-Info.dart';
+import '../../Reservation/Reservation-Info.dart';
 
 class ListViewCell extends StatefulWidget {
   List<ReservationData> reservationData = new List<ReservationData>();
@@ -28,7 +31,7 @@ class _ListViewCellState extends State<ListViewCell> {
     super.initState();
 
     for (ReservationData rd in reservationData) {
-      print(rd.isAvailable);
+
       Color color = rd.isAvailable == true ? Colors.white : Colors.red;
       btnColor.add(color);
     }
@@ -61,7 +64,7 @@ class _ListViewCellState extends State<ListViewCell> {
                           materialTapTargetSize:
                               MaterialTapTargetSize.shrinkWrap,
                           color: btnColor[index],
-                          onPressed: () => {},
+                          onPressed: () => Navigator.pushNamed(context, ReservationInfo.routeName, arguments: ScreenArgumentsReservationInfo(reservationData[index].getDateTime) ),
                           child: Text(reservationData[index].timeSlots))))),
         ],
       ),
