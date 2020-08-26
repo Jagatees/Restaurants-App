@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurantsapp/class/Reservation-Data.dart';
 import '../../services/Reservation-DAL.dart';
+import '../bloc/ReservationBloc.dart';
 
 class Reservation extends StatefulWidget{
   
@@ -16,13 +17,13 @@ class Reservation extends StatefulWidget{
 
 class _ReservationState extends State<Reservation>{
 
-
+  ReservationBloc _reservationBloc = ReservationBloc();
   @override
   void initState() {
     super.initState();
 
     ReservationDAL reservationDAL  = ReservationDAL();
-    reservationDAL.getReservations();
+    reservationDAL.getReservations(_reservationBloc);
   }
 
   @override
