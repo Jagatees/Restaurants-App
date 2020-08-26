@@ -24,6 +24,12 @@ class _ReservationInfoState extends State<ReservationInfo> {
 
   ReservationDAL reservationDAL = ReservationDAL();
 
+  _addReservation(DateTime reservationID) async{
+    await reservationDAL.addReservation(_name.text, _contact.text, reservationID);
+    print("Reserved");
+    Navigator.popAndPushNamed(context, "/Main-Menu");
+  }
+
   @override
   Widget build(BuildContext context) {
     final ScreenArgumentsReservationInfo args =
@@ -55,7 +61,7 @@ class _ReservationInfoState extends State<ReservationInfo> {
             SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: RaisedButton(
-                  onPressed: () => reservationDAL.addReservation(_name.text, _contact.text, args.reservationID),
+                  onPressed: () {_addReservation(args.reservationID);},
                   child: Text("Reserve"),
                 ))
           ],
