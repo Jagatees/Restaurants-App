@@ -23,6 +23,22 @@ class _ListViewCellState extends State<ListViewCell>{
 
   _ListViewCellState(this.reservationData, this.date);
 
+  List<Color> btnColor = List<Color>();
+
+  @override
+  void initState() {
+    // implement initState
+    super.initState();
+
+    for (ReservationData rd in reservationData) {
+      print(rd.isAvailable);
+      Color color = rd.isAvailable == true ? Colors.white : Colors.red;
+      btnColor.add(color);
+    }
+  }
+
+  
+
   @override
   Widget build(BuildContext context) {
 
@@ -49,8 +65,8 @@ class _ListViewCellState extends State<ListViewCell>{
                       width: double.infinity,
                       child: FlatButton(
                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        color: Colors.white,
-                          onPressed: () => {},
+                        color: btnColor[index],
+                          onPressed: () => setState(() => btnColor[index] = Colors.blue[400]),
                           child: Text(reservationData[index].timeSlots))))),
         ],
       ),

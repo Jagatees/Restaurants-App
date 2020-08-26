@@ -14,6 +14,7 @@ class ReservationData {
 
   factory ReservationData.fromDocumentSnapShot(
       DocumentSnapshot documentSnapshot) {
+        print(documentSnapshot.data["Available"]);
     return ReservationData(
         dateTime: DateTime.parse(documentSnapshot.documentID),
         timeSlots: documentSnapshot.data["Timeslot"],
