@@ -10,7 +10,7 @@ class MenuDLI{
   
   MenuDLI();
 
-  GetDrinks({@required MenuBloc menuBloc}){
+  void getDrinks({@required MenuBloc menuBloc}){
 
     Firestore.instance.collection('Menu').document("Drinks").collection("Drinks").getDocuments().then((querySnapshot){
       querySnapshot.documents.forEach((result){
