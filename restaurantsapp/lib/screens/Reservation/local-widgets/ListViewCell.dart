@@ -1,29 +1,26 @@
 import 'package:flutter/material.dart';
 import '../../../class/Reservation-Data.dart';
 
-
-class ListViewCell extends StatefulWidget{
-
+class ListViewCell extends StatefulWidget {
   List<ReservationData> reservationData = new List<ReservationData>();
   String date;
 
   //Defualt construtor
   ListViewCell(this.reservationData, this.date);
-  
 
   @override
-  State<StatefulWidget> createState() => _ListViewCellState(this.reservationData, this.date);
-
+  State<StatefulWidget> createState() =>
+      _ListViewCellState(this.reservationData, this.date);
 }
 
-class _ListViewCellState extends State<ListViewCell>{
-
+class _ListViewCellState extends State<ListViewCell> {
   List<ReservationData> reservationData = new List<ReservationData>();
   String date;
 
   _ListViewCellState(this.reservationData, this.date);
 
   List<Color> btnColor = List<Color>();
+  int chosenIndex = 0;
 
   @override
   void initState() {
@@ -37,11 +34,8 @@ class _ListViewCellState extends State<ListViewCell>{
     }
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
-
     return Container(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -64,13 +58,13 @@ class _ListViewCellState extends State<ListViewCell>{
                   (index) => SizedBox(
                       width: double.infinity,
                       child: FlatButton(
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        color: btnColor[index],
-                          onPressed: () => setState(() => btnColor[index] = Colors.blue[400]),
+                          materialTapTargetSize:
+                              MaterialTapTargetSize.shrinkWrap,
+                          color: btnColor[index],
+                          onPressed: () => {},
                           child: Text(reservationData[index].timeSlots))))),
         ],
       ),
     );
-
   }
 }
