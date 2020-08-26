@@ -3,7 +3,7 @@ import '../../class/Reservation-Data.dart';
 
 class ReservationBloc{
 
-  static Map<String, List<ReservationData>> _reservation = {};
+  Map<String, List<ReservationData>> _reservation = {};
 
   final _reservationListSteamController = StreamController<Map<String, List<ReservationData>>>();
   final _reservationAddSteamController = StreamController<ReservationData>();
