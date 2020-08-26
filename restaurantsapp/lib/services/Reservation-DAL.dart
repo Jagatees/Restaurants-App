@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../class/Reservation-Data.dart';
 import '../screens/bloc/ReservationBloc.dart';
+import 'package:intl/intl.dart';
 
 class ReservationDAL{
     
@@ -33,7 +34,8 @@ class ReservationDAL{
       await reservationTransaction.document().setData({
         'Name': name,
         'ContactNumber': contactNumber,
-        'ReservationID': id
+        'ReservationID':  DateFormat('yyyy-MM-dd HH:mm:ss').format(id)
+
       });
 
       print("Reservered");
