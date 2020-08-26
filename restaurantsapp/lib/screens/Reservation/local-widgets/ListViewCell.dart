@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
 import '../../../class/Reservation-Data.dart';
 
-class ListViewCell extends StatelessWidget {
+
+class ListViewCell extends StatefulWidget{
+
   List<ReservationData> reservationData = new List<ReservationData>();
   String date;
+
+  //Defualt construtor
   ListViewCell(this.reservationData, this.date);
+  
+
+  @override
+  State<StatefulWidget> createState() => _ListViewCellState(this.reservationData, this.date);
+
+}
+
+class _ListViewCellState extends State<ListViewCell>{
+
+  List<ReservationData> reservationData = new List<ReservationData>();
+  String date;
+
+  _ListViewCellState(this.reservationData, this.date);
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
-      
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -31,11 +48,13 @@ class ListViewCell extends StatelessWidget {
                   (index) => SizedBox(
                       width: double.infinity,
                       child: FlatButton(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         color: Colors.white,
                           onPressed: () => {},
                           child: Text(reservationData[index].timeSlots))))),
         ],
       ),
     );
+
   }
 }

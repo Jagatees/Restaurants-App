@@ -31,17 +31,27 @@ class _ReservationState extends State<Reservation> {
         body: StreamBuilder<Map<String, List<ReservationData>>>(
           stream: _reservationBloc.reservationListStream,
           builder: (context, snapshot) {
-            List<String> keys = snapshot.data.keys.toList();
             if (snapshot.hasData) {
-              return ListView.separated(
-                  itemBuilder: (BuildContext context, int index) =>
-                      ListViewCell(snapshot.data[keys[index]], keys[index]),
-                  separatorBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
-                    );
-                  },
-                  itemCount: keys.length);
+              List<String> keys = snapshot.data.keys.toList();
+              return Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                        itemBuilder: (BuildContext context, int index) =>
+                            ListViewCell(
+                                snapshot.data[keys[index]], keys[index]),
+                        itemCount: keys.length),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: double.infinity,
+                        child: SafeArea(
+                            child: RaisedButton(
+                                onPressed: () => {}, child: Text("Reserve")))),
+                  )
+                ],
+              );
             } else {
               return CircularProgressIndicator();
             }
