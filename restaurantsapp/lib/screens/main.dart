@@ -6,6 +6,8 @@ import '../class/user.dart';
 import 'Main-Menu/main_meun.dart';
 import 'Cart/cart.dart';
 import '../check_out.dart';
+import '../screens/Reservation/Reservation.dart';
+import '../screens/Reservation/Reservation-Info.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +22,9 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           '/Main-Menu': (BuildContext context) => MainMenu(),
           '/Cart': (BuildContext context) => Cart(),
-          '/Checkout': (BuildContext context) => CheckOut(),
+          CheckOut.routeName: (BuildContext context) => CheckOut(),
+          Reservation.routeName: (BuildContext context) => Reservation(),
+          ReservationInfo.routeName: (BuildContext context) => ReservationInfo(),
         },
       ),
     );

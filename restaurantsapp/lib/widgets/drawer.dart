@@ -4,6 +4,7 @@ import 'package:restaurantsapp/screens/Main-Menu/main_meun.dart';
 import '../profile.dart';
 import '../feedback_form.dart';
 import '../delivery.dart';
+import '../screens/Reservation/Reservation.dart';
 
 
 
@@ -85,6 +86,15 @@ class CustomDrawer extends StatelessWidget{
                   context,
                   MaterialPageRoute(builder: (context) => Delivery()),
                 );
+              } ,
+            ),
+
+            new ListTile(
+              title: new Text(
+                  'Reservation'
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, Reservation.routeName);
               } ,
             ),
 

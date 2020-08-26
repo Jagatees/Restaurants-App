@@ -30,7 +30,7 @@ class _MainMeunState extends State<MainMenu> {
     MenuDLI menuDli = MenuDLI();
     _menuBloc = MenuBloc();
 
-    menuDli.GetDrinks(menuBloc: _menuBloc);
+    menuDli.getDrinks(menuBloc: _menuBloc);
   }
 
   @override
