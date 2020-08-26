@@ -3,11 +3,8 @@ import 'package:restaurantsapp/check_out.dart';
 import 'package:restaurantsapp/screens/Main-Menu/main_meun.dart';
 import '../profile.dart';
 import '../feedback_form.dart';
-<<<<<<< HEAD
-import '../screens/Reservation/Reservation.dart';
-=======
 import '../delivery.dart';
->>>>>>> master
+import '../screens/Reservation/Reservation.dart';
 
 
 
