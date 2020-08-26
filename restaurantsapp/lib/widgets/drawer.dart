@@ -3,7 +3,11 @@ import 'package:restaurantsapp/check_out.dart';
 import 'package:restaurantsapp/screens/Main-Menu/main_meun.dart';
 import '../profile.dart';
 import '../feedback_form.dart';
+<<<<<<< HEAD
 import '../screens/Reservation/Reservation.dart';
+=======
+import '../delivery.dart';
+>>>>>>> master
 
 
 
@@ -23,8 +27,23 @@ class CustomDrawer extends StatelessWidget{
                 backgroundImage: new AssetImage('assets/images/profile_picture.jpg'),
               ),
             ),
+
+
             new ListTile(
-              title: new Text('Shop Info'),
+              title: new Text(
+                  'Home'
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainMenu()),
+                );
+              } ,
+            ),
+
+            new ListTile(
+              title: new Text('Resturant Info'),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.push(
@@ -36,7 +55,7 @@ class CustomDrawer extends StatelessWidget{
 
             new ListTile(
               title: new Text(
-                  'Feedback Info'
+                  'Feedback Form'
               ),
               onTap: () {
                 Navigator.of(context).pop();
@@ -49,7 +68,7 @@ class CustomDrawer extends StatelessWidget{
 
             new ListTile(
               title: new Text(
-                  'Credit Cards Real'
+                  'Test Credit Card Payment'
               ),
               onTap: () {
                 Navigator.of(context).pop();
@@ -62,13 +81,13 @@ class CustomDrawer extends StatelessWidget{
 
             new ListTile(
               title: new Text(
-                  'Home'
+                  'Delivery Test'
               ),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MainMenu()),
+                  MaterialPageRoute(builder: (context) => Delivery()),
                 );
               } ,
             ),
