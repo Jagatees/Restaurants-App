@@ -3,13 +3,13 @@ import '../../class/Reservation-Data.dart';
 
 class ReservationBloc{
 
-  static Map<DateTime, List<ReservationData>> _reservation = {};
+  static Map<String, List<ReservationData>> _reservation = {};
 
-  final _reservationListSteamController = StreamController<Map<DateTime, List<ReservationData>>>();
+  final _reservationListSteamController = StreamController<Map<String, List<ReservationData>>>();
   final _reservationAddSteamController = StreamController<ReservationData>();
 
-  Stream<Map<DateTime, List<ReservationData>>> get reservationListStream => _reservationListSteamController.stream;
-  StreamSink<Map<DateTime, List<ReservationData>>> get reservationListSink => _reservationListSteamController.sink;
+  Stream<Map<String, List<ReservationData>>> get reservationListStream => _reservationListSteamController.stream;
+  StreamSink<Map<String, List<ReservationData>>> get reservationListSink => _reservationListSteamController.sink;
 
   StreamSink<ReservationData> get reservationAdd => _reservationAddSteamController.sink;
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurantsapp/class/Reservation-Data.dart';
 import '../../services/Reservation-DAL.dart';
 import '../bloc/ReservationBloc.dart';
+import 'local-widgets/ListViewCell.dart';
 
 class Reservation extends StatefulWidget {
   static const routeName = "/Reservation";
@@ -27,19 +28,20 @@ class _ReservationState extends State<Reservation> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text("Reservation")),
-        body: StreamBuilder<Map<DateTime, List<ReservationData>>>(
+        body: StreamBuilder<Map<String, List<ReservationData>>>(
           stream: _reservationBloc.reservationListStream,
           builder: (context, snapshot) {
+            List<String> keys = snapshot.data.keys.toList();
             if (snapshot.hasData) {
               return ListView.separated(
                   itemBuilder: (BuildContext context, int index) =>
-                      Text(snapshot.data[DateTime.parse("2020-08-26 19:00:00.000")][0].toString()),
+                      ListViewCell(snapshot.data[keys[index]], keys[index]),
                   separatorBuilder: (BuildContext context, int index) {
                     return Padding(
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
                     );
                   },
-                  itemCount: snapshot.data.length);
+                  itemCount: keys.length);
             } else {
               return CircularProgressIndicator();
             }

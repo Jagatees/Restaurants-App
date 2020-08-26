@@ -2,13 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ReservationData {
-  DateTime dateTime;
+  DateTime _dateTime;
   String timeSlots;
   int slots;
   bool isAvailable;
 
   ReservationData(
-      {this.dateTime, this.timeSlots, this.slots, this.isAvailable});
+      {DateTime dateTime, this.timeSlots, this.slots, this.isAvailable}){
+        _dateTime = dateTime;
+      }
 
   factory ReservationData.fromDocumentSnapShot(
       DocumentSnapshot documentSnapshot) {
@@ -19,8 +21,10 @@ class ReservationData {
         isAvailable: documentSnapshot.data["Available"]);
   }
 
+  String get dateTime => "${this._dateTime.day}/${this._dateTime.month}/${this._dateTime.year}";
+
   @override
   String toString() {
-    return "Reservation on ${this.dateTime} has ${this.slots} from ${this.timeSlots} and is ${this.isAvailable}";
+    return "Reservation on ${this._dateTime} has ${this.slots} from ${this.timeSlots} and is ${this.isAvailable}";
   }
 }
