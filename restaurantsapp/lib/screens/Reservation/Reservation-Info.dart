@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../Screen-Arguments/ReservationInfo.dart';
+import '../../services/Reservation-DAL.dart';
 
 class ReservationInfo extends StatefulWidget {
   static const routeName = "/ReservationInfo";
 
-  
   //Defualt construtor
   ReservationInfo();
 
@@ -13,14 +13,21 @@ class ReservationInfo extends StatefulWidget {
 }
 
 class _ReservationInfoState extends State<ReservationInfo> {
-
-
+  
+  
   _ReservationInfoState();
+
+  //Text field controllers
+  TextEditingController _name = TextEditingController();
+  TextEditingController _contact = TextEditingController();
+
+
+  ReservationDAL reservationDAL = ReservationDAL();
 
   @override
   Widget build(BuildContext context) {
-    
-    final ScreenArgumentsReservationInfo args = ModalRoute.of(context).settings.arguments;
+    final ScreenArgumentsReservationInfo args =
+        ModalRoute.of(context).settings.arguments;
     print(args.reservationID);
 
     return Scaffold(
@@ -31,9 +38,26 @@ class _ReservationInfoState extends State<ReservationInfo> {
         padding: EdgeInsets.all(8.0),
         child: Column(
           children: [
-            TextFormField(decoration: InputDecoration(hintText: "Name"),),
-            SizedBox(height: 10,),
-            TextFormField(decoration: InputDecoration(hintText: "Contact Person"),)
+            TextFormField(
+              controller: _name,
+              decoration: InputDecoration(hintText: "Name"),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              controller: _contact,
+              decoration: InputDecoration(hintText: "Contact Person"),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: RaisedButton(
+                  onPressed: () => reservationDAL.addReservation(_name.text, _contact.text, args.reservationID),
+                  child: Text("Reserve"),
+                ))
           ],
         ),
       ),

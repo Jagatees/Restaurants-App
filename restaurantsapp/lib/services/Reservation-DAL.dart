@@ -7,6 +7,8 @@ class ReservationDAL{
   final firestoreInstance = Firestore.instance;
   DocumentReference reference;
   
+  final CollectionReference reservationTransaction = Firestore.instance.collection('ReservationTransaction');
+
   ReservationDAL();
 
   void getReservations(ReservationBloc reservationBloc){
@@ -25,5 +27,15 @@ class ReservationDAL{
     });
 
 
+  }
+
+    Future<void> addReservation(String name, String contactNumber, DateTime id) async {
+      await reservationTransaction.document().setData({
+        'Name': name,
+        'ContactNumber': contactNumber,
+        'ReservationID': id
+      });
+
+      print("Reservered");
   }
 }
