@@ -6,9 +6,9 @@ import '../../services/Menu-DLI.dart';
 import '../bloc/MenuBloc.dart';
 import '../../class/Drink.dart';
 import 'local-widgets/StructuredGridCell.dart';
-
-
+import 'local-widgets/PromotionDialog.dart';
 import 'package:restaurantsapp/widgets/drawer.dart';
+import 'dart:async';
 
 
 
@@ -17,7 +17,7 @@ class MainMenu extends StatefulWidget {
   _MainMeunState createState() => _MainMeunState();
 }
 
-class _MainMeunState extends State<MainMenu> {
+class _MainMeunState extends State<MainMenu> with WidgetsBindingObserver{
   MenuBloc _menuBloc;
   final AuthService _auth = AuthService();
 
@@ -31,10 +31,14 @@ class _MainMeunState extends State<MainMenu> {
     _menuBloc = MenuBloc();
 
     menuDli.getDrinks(menuBloc: _menuBloc);
+
+
+    
   }
 
   @override
   Widget build(BuildContext context) {
+
 
     void _showSettingsPanel() {
       showModalBottomSheet(context: context, builder: (context) {
@@ -48,6 +52,12 @@ class _MainMeunState extends State<MainMenu> {
 
     final double itemHeight = 290.8;
     final double itemWidth = 187.5;
+    
+    
+    WidgetsBinding.instance.addPostFrameCallback((_) => showDialog(context: context,builder: (BuildContext context) => CustomDialog()));
+
+
+    
 
     return Scaffold(
       appBar: AppBar(
@@ -63,7 +73,7 @@ class _MainMeunState extends State<MainMenu> {
           FlatButton.icon(
             icon: Icon(Icons.settings),
             label: Text('Profile'),
-            onPressed: () => _showSettingsPanel(),
+            onPressed: () => showDialog(context: context,builder: (BuildContext context) => CustomDialog()),
           ),
 
           IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () => Navigator.pushNamed(context, "/Cart")),
@@ -92,5 +102,7 @@ class _MainMeunState extends State<MainMenu> {
             ),
       )),
     );
+
+    
   }
 }
