@@ -73,7 +73,7 @@ class _MainMeunState extends State<MainMenu> with WidgetsBindingObserver{
           FlatButton.icon(
             icon: Icon(Icons.settings),
             label: Text('Profile'),
-            onPressed: () => showDialog(context: context,builder: (BuildContext context) => CustomDialog()),
+            onPressed: () => _showSettingsPanel(),
           ),
 
           IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () => Navigator.pushNamed(context, "/Cart")),
