@@ -13,6 +13,9 @@ import 'dart:async';
 
 
 class MainMenu extends StatefulWidget {
+
+  static bool firstTime = false;
+
   @override
   _MainMeunState createState() => _MainMeunState();
 }
@@ -53,11 +56,14 @@ class _MainMeunState extends State<MainMenu> with WidgetsBindingObserver{
     final double itemHeight = 290.8;
     final double itemWidth = 187.5;
     
+
+    if(!MainMenu.firstTime){
+      WidgetsBinding.instance.addPostFrameCallback((_) => showDialog(context: context,builder: (BuildContext context) => CustomDialog()));
+      MainMenu.firstTime = true;
+    }
     
-    WidgetsBinding.instance.addPostFrameCallback((_) => showDialog(context: context,builder: (BuildContext context) => CustomDialog()));
 
 
-    
 
     return Scaffold(
       appBar: AppBar(
