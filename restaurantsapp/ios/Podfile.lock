@@ -232,6 +232,8 @@ PODS:
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
   - Flutter (1.0.0)
+  - flutter_money_formatter (0.0.1):
+    - Flutter
   - GoogleAppMeasurement (6.1.6):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -293,6 +295,7 @@ DEPENDENCIES:
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
+  - flutter_money_formatter (from `.symlinks/plugins/flutter_money_formatter/ios`)
   - stripe_payment (from `.symlinks/plugins/stripe_payment/ios`)
 
 SPEC REPOS:
@@ -328,6 +331,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: Flutter
+  flutter_money_formatter:
+    :path: ".symlinks/plugins/flutter_money_formatter/ios"
   stripe_payment:
     :path: ".symlinks/plugins/stripe_payment/ios"
 
@@ -347,6 +352,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 2e92e977280d63ecbf3fd58bdbfaf9145abb880f
   FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_money_formatter: d0d18ddc5be333fad8d09964d741b59fa11a91dc
   GoogleAppMeasurement: dfe55efa543e899d906309eaaac6ca26d249862f
   GoogleDataTransport: 8e9b210c97d55fbff306cc5468ff91b9cb32dcf5
   GoogleDataTransportCCTSupport: ef79a4728b864946a8aafdbab770d5294faf3b5f
