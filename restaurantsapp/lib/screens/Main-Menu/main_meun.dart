@@ -63,7 +63,6 @@ class _MainMeunState extends State<MainMenu> with WidgetsBindingObserver{
       appBar: AppBar(
         title: Text('Main Menu'),
         actions: <Widget>[
-
           IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () => Navigator.pushNamed(context, "/Cart")),
         ],
       ),
