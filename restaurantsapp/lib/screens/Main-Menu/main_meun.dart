@@ -42,7 +42,6 @@ class _MainMeunState extends State<MainMenu> with WidgetsBindingObserver{
   @override
   Widget build(BuildContext context) {
 
-
     void _showSettingsPanel() {
       showModalBottomSheet(context: context, builder: (context) {
         return Container(
@@ -52,23 +51,19 @@ class _MainMeunState extends State<MainMenu> with WidgetsBindingObserver{
       });
     }
 
-
     final double itemHeight = 290.8;
     final double itemWidth = 187.5;
-    
 
     if(!MainMenu.firstTime){
       WidgetsBinding.instance.addPostFrameCallback((_) => showDialog(context: context,builder: (BuildContext context) => CustomDialog()));
       MainMenu.firstTime = true;
     }
-    
-
-
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Main Menu'),
         actions: <Widget>[
+
           IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () => Navigator.pushNamed(context, "/Cart")),
         ],
       ),

@@ -16,19 +16,13 @@ import 'package:provider/provider.dart';
 
 final AuthService _auth = AuthService();
 
-
-
 class CustomDrawer extends StatelessWidget{
-
-
-
   const CustomDrawer();
 
   @override
   Widget build(BuildContext context) {
 
     User user = Provider.of<User>(context);
-
 
     void _showSettingsPanel() {
       showModalBottomSheet(context: context, builder: (context) {
