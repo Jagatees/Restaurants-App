@@ -42,20 +42,21 @@ class CustomDrawer extends StatelessWidget{
             return Drawer(
               child: Column(
                 children: <Widget>[
-
                   UserAccountsDrawerHeader(
-                    accountName: new Text('UserName'),
+                    decoration: BoxDecoration(
+                        color: Colors.red,
+                    ),
+                    accountName: new Text('Name'),
                     accountEmail: new Text(snapshot.data.name),
                     currentAccountPicture: new CircleAvatar(
                       backgroundImage: new AssetImage('assets/images/profile_picture.jpg'),
                     ),
                   ),
-
-
                   new ListTile(
                     title: new Text(
                         'Home'
                     ),
+                    leading: Icon(Icons.home),
                     onTap: () {
                       Navigator.of(context).pop();
                       Navigator.push(
@@ -67,6 +68,7 @@ class CustomDrawer extends StatelessWidget{
 
                   new ListTile(
                     title: new Text('Resturant Info'),
+                    leading: Icon(Icons.info),
                     onTap: () {
                       Navigator.of(context).pop();
                       Navigator.push(
@@ -80,6 +82,7 @@ class CustomDrawer extends StatelessWidget{
                     title: new Text(
                         'Feedback Form'
                     ),
+                    leading: Icon(Icons.feedback),
                     onTap: () {
                       Navigator.of(context).pop();
                       Navigator.push(
@@ -93,6 +96,7 @@ class CustomDrawer extends StatelessWidget{
                     title: new Text(
                         'Delivery'
                     ),
+                    leading: Icon(Icons.directions_bike),
                     onTap: () {
                       Navigator.of(context).pop();
                       Navigator.push(
@@ -106,6 +110,7 @@ class CustomDrawer extends StatelessWidget{
                     title: new Text(
                         'Reservation'
                     ),
+                    leading: Icon(Icons.bookmark),
                     onTap: () {
                       Navigator.of(context).pop();
                       Navigator.pushNamed(context, Reservation.routeName);
@@ -117,6 +122,7 @@ class CustomDrawer extends StatelessWidget{
                     title: new Text(
                         'Profile'
                     ),
+                    leading: Icon(Icons.verified_user),
                     onTap: ()  {
                       _showSettingsPanel();
                     } ,
@@ -126,6 +132,7 @@ class CustomDrawer extends StatelessWidget{
                     title: new Text(
                         'Logout'
                     ),
+                    leading: Icon(Icons.exit_to_app),
                     onTap: () async {
                       await _auth.signOut();
                     },

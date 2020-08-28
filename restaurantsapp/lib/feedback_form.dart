@@ -16,6 +16,7 @@ class FeedBackForm extends StatelessWidget {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text('Feedback Form'),
       ),
       body: Center(

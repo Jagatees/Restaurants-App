@@ -16,6 +16,7 @@ class _DeliveryState extends State<Delivery> {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text('Delivery Form'),
       ),
       body: Center(
@@ -36,7 +37,7 @@ class _DeliveryState extends State<Delivery> {
               ),
 
               FlatButton(
-                color: Colors.blue,
+                color: Colors.red,
                 textColor: Colors.white,
                 disabledColor: Colors.grey,
                 disabledTextColor: Colors.black,

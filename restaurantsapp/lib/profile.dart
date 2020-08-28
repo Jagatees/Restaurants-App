@@ -10,6 +10,7 @@ class Profile extends StatelessWidget {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text('Profile Page'),
       ),
       body: Center(
