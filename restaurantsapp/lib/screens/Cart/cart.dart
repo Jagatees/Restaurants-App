@@ -41,9 +41,10 @@ class _CartState extends State<Cart> {
                 Expanded(
                   child: ListView.separated(
                       itemCount: snapshot.data.keys.toList().length,
-                      itemBuilder: (BuildContext context, int index) =>
-                          ListViewCell(snapshot.data[keys[index]][0],
-                              snapshot.data[keys[index]].length, _menuBloc),
+                      itemBuilder: (BuildContext context, int index) {
+                        Menu menu = snapshot.data[keys[index]][0];
+                          return new ListViewCell(menu,
+                              snapshot.data[keys[index]].length, _menuBloc);},
                       separatorBuilder: (BuildContext context, int index) {
                         return Padding(
                           padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
