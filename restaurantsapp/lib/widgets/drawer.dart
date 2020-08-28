@@ -65,20 +65,7 @@ class CustomDrawer extends StatelessWidget{
 
             new ListTile(
               title: new Text(
-                  'Test Credit Card Payment'
-              ),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CheckOut()),
-                );
-              } ,
-            ),
-
-            new ListTile(
-              title: new Text(
-                  'Delivery Test'
+                  'Delivery'
               ),
               onTap: () {
                 Navigator.of(context).pop();
@@ -94,6 +81,7 @@ class CustomDrawer extends StatelessWidget{
                   'Reservation'
               ),
               onTap: () {
+                Navigator.of(context).pop();
                 Navigator.pushNamed(context, Reservation.routeName);
               } ,
             ),
