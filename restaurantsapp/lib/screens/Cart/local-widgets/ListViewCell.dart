@@ -2,36 +2,30 @@ import 'package:flutter/material.dart';
 import '../../../class/Menu.dart';
 import '../../bloc/MenuBloc.dart';
 
-class ListViewCell extends StatefulWidget{
 
-  Menu menu;
+// ignore: must_be_immutable
+class ListViewCell extends StatelessWidget{
+
+
+   Menu menu;
   int count;
   final MenuBloc menuBloc;
-  ListViewCell(this.menu, this.count, this.menuBloc);
+  ListViewCell(Menu menu, this.count, this.menuBloc){
+    this.menu = menu;
+  }
 
-  @override
-  State<StatefulWidget> createState() => _ListViewCellState(menu, count, menuBloc);
-
-}
-
-class _ListViewCellState extends State<ListViewCell>{
-
-  Menu menu;
-  int count;
-  final MenuBloc menuBloc;
-  _ListViewCellState(this.menu, this.count, this.menuBloc);
 
   @override
   Widget build(BuildContext context) {
-
+   
     _addCart(){
       menuBloc.cartAdd.add(menu);
-      setState(() => count = count + 1);
+      // setState(() => count = count + 1);
     }
 
     _removeCart(){
       menuBloc.cartRemove.add(menu.ID);
-      setState(() => count = count - 1);
+      // setState(() => count = count - 1);
     }
 
     return Card(
@@ -58,4 +52,3 @@ class _ListViewCellState extends State<ListViewCell>{
   }
 
 }
-
