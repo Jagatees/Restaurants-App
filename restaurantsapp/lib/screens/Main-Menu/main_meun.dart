@@ -69,19 +69,6 @@ class _MainMeunState extends State<MainMenu> with WidgetsBindingObserver{
       appBar: AppBar(
         title: Text('Main Menu'),
         actions: <Widget>[
-          FlatButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('logout'),
-            onPressed: () async {
-              await _auth.signOut();
-            },
-          ),
-          FlatButton.icon(
-            icon: Icon(Icons.settings),
-            label: Text('Profile'),
-            onPressed: () => _showSettingsPanel(),
-          ),
-
           IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () => Navigator.pushNamed(context, "/Cart")),
         ],
       ),
