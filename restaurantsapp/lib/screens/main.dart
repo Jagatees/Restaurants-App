@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurantsapp/screens/wrapper.dart';
 import 'package:restaurantsapp/services/auth.dart';
+import 'package:restaurantsapp/splash_screen.dart';
 import '../class/user.dart';
 import 'Main-Menu/main_meun.dart';
 import 'Cart/cart.dart';
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
     return StreamProvider<User>.value(
       value: AuthService().user,
       child: MaterialApp(
-        home: Wrapper(),
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
         routes: <String, WidgetBuilder>{
           '/Main-Menu': (BuildContext context) => MainMenu(),
           '/Cart': (BuildContext context) => Cart(),

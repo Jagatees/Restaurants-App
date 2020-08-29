@@ -46,7 +46,7 @@ class _SettingsFormState extends State<SettingsForm> {
                 SizedBox(height: 10.0),
 
                 RaisedButton(
-                  color: Colors.pink[400],
+                  color: Colors.red,
                   child: Text(
                     'Update',
                     style: TextStyle(color: Colors.white),

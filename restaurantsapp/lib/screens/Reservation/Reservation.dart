@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurantsapp/class/Reservation-Data.dart';
+import 'package:restaurantsapp/widgets/drawer.dart';
 import '../../services/Reservation-DAL.dart';
 import '../bloc/ReservationBloc.dart';
 import 'local-widgets/ListViewCell.dart';
@@ -27,7 +28,11 @@ class _ReservationState extends State<Reservation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Reservation")),
+        appBar: AppBar(
+            backgroundColor: Colors.red,
+            title: Text("Reservation")
+        ),
+        drawer: CustomDrawer(),
         body: StreamBuilder<Map<String, List<ReservationData>>>(
           stream: _reservationBloc.reservationListStream,
           builder: (context, snapshot) {

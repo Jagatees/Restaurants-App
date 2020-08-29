@@ -37,13 +37,15 @@ class CheckOutPageState extends State<CheckOut> {
     
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text('Home'),
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             FlatButton(
-              color: Colors.blue,
+              color: Colors.red,
               textColor: Colors.white,
               disabledColor: Colors.grey,
               disabledTextColor: Colors.black,

@@ -8,7 +8,7 @@ import '../../class/Drink.dart';
 import 'local-widgets/StructuredGridCell.dart';
 import 'local-widgets/PromotionDialog.dart';
 import 'package:restaurantsapp/widgets/drawer.dart';
-import 'dart:async';
+
 
 
 
@@ -55,33 +55,21 @@ class _MainMeunState extends State<MainMenu> with WidgetsBindingObserver{
 
     final double itemHeight = 290.8;
     final double itemWidth = 187.5;
-    
+
 
     if(!MainMenu.firstTime){
       WidgetsBinding.instance.addPostFrameCallback((_) => showDialog(context: context,builder: (BuildContext context) => CustomDialog()));
       MainMenu.firstTime = true;
     }
-    
+
 
 
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Main Menu'),
+        backgroundColor: Colors.red,
         actions: <Widget>[
-          FlatButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('logout'),
-            onPressed: () async {
-              await _auth.signOut();
-            },
-          ),
-          FlatButton.icon(
-            icon: Icon(Icons.settings),
-            label: Text('Profile'),
-            onPressed: () => _showSettingsPanel(),
-          ),
-
           IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () => Navigator.pushNamed(context, "/Cart")),
         ],
       ),

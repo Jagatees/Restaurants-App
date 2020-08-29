@@ -36,10 +36,20 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
+
+    final logo = Hero(
+      tag: 'hero',
+      child: CircleAvatar(
+        backgroundColor: Colors.transparent,
+        radius: 48.0,
+        child: Image.asset('assets/images/icon.png'),
+      ),
+    );
+
     return loading ? Loading() : Scaffold(
-      backgroundColor: Colors.brown[100],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.brown[400],
+        backgroundColor: Colors.red,
         elevation: 0.0,
         title: Text('Sign in'),
         actions: <Widget>[
@@ -56,20 +66,31 @@ class _SignInState extends State<SignIn> {
           key: _formKey,
           child: Column(
             children: <Widget>[
+              logo,
               SizedBox(height: 20.0),
               TextFormField(
                 controller: _email,
-                decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() => email = val);
                 },
+                decoration: InputDecoration(
+                  hintText: 'Email',
+                  contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+                ),
               ),
+
+
               SizedBox(height: 20.0),
               TextFormField(
                 controller: _password,
                 obscureText: true,
-                decoration: textInputDecoration.copyWith(hintText: 'Password'),
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                  contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+                ),
                 validator: (val) => val.length < 6 ? 'Enter a password 6+ chars long' : null,
                 onChanged: (val) {
                   setState(() => password = val);
@@ -77,7 +98,7 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
-                color: Colors.pink[400],
+                color: Colors.red,
                 child: Text(
                   'Sign In',
                   style: TextStyle(color: Colors.white),

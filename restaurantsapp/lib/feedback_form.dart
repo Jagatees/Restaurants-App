@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurantsapp/services/database.dart';
+import 'package:restaurantsapp/widgets/drawer.dart';
 import 'screens/Main-Menu/main_meun.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -13,7 +14,9 @@ class FeedBackForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text('Feedback Form'),
       ),
       body: Center(

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurantsapp/check_out.dart';
 import 'package:restaurantsapp/screens/Screen-Arguments/checkout.dart';
+import 'package:restaurantsapp/widgets/drawer.dart';
 
 
 class Delivery extends StatefulWidget {
@@ -13,7 +14,9 @@ class _DeliveryState extends State<Delivery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text('Delivery Form'),
       ),
       body: Center(
@@ -34,7 +37,7 @@ class _DeliveryState extends State<Delivery> {
               ),
 
               FlatButton(
-                color: Colors.blue,
+                color: Colors.red,
                 textColor: Colors.white,
                 disabledColor: Colors.grey,
                 disabledTextColor: Colors.black,
