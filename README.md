@@ -48,8 +48,8 @@ flutter run -d {device id}
 
 ## Usage
 
-| <img src=".documentation/images/images_1.png" alt="images_1" style="zoom:35%;" align="left" /> | The is the login page, you can use the default password. Email: user@gmail.com and Password: 1234567890. |
+| <img src=".documentation/images/images_1.png" alt="images_1" style="zoom:5%;" align="left" height="500" width="250" /> | The is the login page, you can use the default password. Email: user@gmail.com and Password: 1234567890. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img src=".documentation/images/images_2.png" alt="images_2" style="zoom:35%;" align="left" /> | You can Register an account with the app if you wish.        |
-| <img src=".documentation/images/images_3.png" alt="images_3" style="zoom:35%;" align="left" /> | This is the main menu where you can add drinks into the cart by tapping on it. |
+| <img src=".documentation/images/images_2.png" alt="images_2" style="zoom:5%;" align="left" height="500" width="250" /> | You can Register an account with the app if you wish.        |
+| <img src=".documentation/images/images_3.png" alt="images_3" style="zoom:5%;" align="left" height="500" width="250" /> | This is the main menu where you can add drinks into the cart by tapping on it. |
 
