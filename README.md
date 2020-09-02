@@ -53,3 +53,7 @@ flutter run -d {device id}
 | <img src=".documentation/images/images_2.png" alt="images_2" style="zoom:5%;" align="left" height="500" width="250" /> | You can Register an account with the app if you wish.        |
 | <img src=".documentation/images/images_3.png" alt="images_3" style="zoom:5%;" align="left" height="500" width="250" /> | This is the main menu where you can add drinks into the cart by tapping on it. |
 
+
+
+https://github-readme-stats.vercel.app/api?username=AppDevIn&&show_icons=true&title_color=ffffff&icon_color=bb2acf&text_color=daf7dc&bg_color=151515
+
